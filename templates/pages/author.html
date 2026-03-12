@@ -1,0 +1,69 @@
+{% extends "base.html" %} {% load static %}{% load today_tags %} {% block
+meta_data %}
+<title>Самая актуальная информация Астаны 👉 01.imaq.kz</title>
+<meta
+  name="description"
+  content="Новости Казахстана ✅ Картина дня, происшествия, новости экономики, события в искусстве и культуре✍ Все то, что важно для жителей Казахстана⚡imaq.kz ⚡"
+/>
+<link rel="canonical" href="https://01.imaq.kz//author/" />
+{% endblock meta_data %} {% block content %}
+<main>
+  <section>
+    <div class="container">
+      <div class="wrap wrap__category">
+        {% include "popular_news.html" %}
+        <div class="main-news">
+          <ul class="main-news__bread-crumb">
+            <li>
+              <a href="{% url 'news:index' %}"> Главная </a>
+            </li>
+            <li>
+              <a href="#"> Автор </a>
+            </li>
+          </ul>
+          <div class="author">
+            <script>
+              let youIdPageAuthor = "{{uid}}";
+            </script>
+
+            <div class="author__block">
+              <div class="author__block-info" id="authorBlockInfo"></div>
+              <div class="author__news" id="author_list">
+                {% for article in page %}
+                <a
+                  class="author-new"
+                  href="{% url 'news:news_detail' article.alias %}"
+                >
+                  <div class="author-new__block-img">
+                    <picture>
+                      <source
+                        media="(max-width: 699px)"
+                        data-srcset="{{ article.image.new_image_150_webp }}"
+                        class="lazy"
+                      />
+                      <source
+                        media="(min-width: 700px)"
+                        data-srcset="{{ article.image.new_image_800_webp }}"
+                        class="lazy"
+                      />
+                      <img
+                        data-src="{% static 'img/plug.jpg' %}"
+                        alt="{{ article.image.alt }}"
+                        class="main-new__img card__img lazy"
+                      />
+                    </picture>
+                  </div>
+                  <div class="author-new__title">{{ article.title }}</div>
+                </a>
+                {% endfor %}
+              </div>
+
+              {% include "pagination.html" %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

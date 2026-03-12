@@ -1,0 +1,241 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+    <div class="flex flex-col justify-center lg:mx-[100px] mb-6 mx-6">
+        <div class="flex flex-row max-lg:flex-col gap-2 justify-center pt-3">
+            <div class="flex flex-col max-w-[1312px] w-full h-auto shadow-[0px_4px_4px_0px_#0000001A] bg-white p-6 rounded-[16px]">
+                <div class="flex flex-row w-full gap-6 pb-3 border-b-3 border-[#EFEFEF] items-center">
+                    <a href="{% url 'news:index' %}" class="h-[29px] flex justify-center">
+                        <img class="w-[36px] h-[36px] min-w-9 min-h-9" src="{% static 'img/_src/icons/Frame 115.svg' %}">
+                    </a>
+                    <div class="flex flex-col">
+                        <text class="font-[700] text-[24px]">Законодательство</text>
+                        <text class="font-[500] text-[16px]">Актуальные законы, правила и нормативы по ТБ в РК</text>
+                    </div>
+                </div>
+                <div class="flex items-center py-6 gap-6">
+                    <div class="hidden lg:flex gap-1">
+                        <a href="?"
+                           class="
+                                  flex items-center gap-2 px-3 py-[7.5px] rounded-xl
+                                  {% if not request.GET.sort and not request.GET.search %}
+                                      bg-[#AF1E2A]
+                                  {% else %}
+                                      hover:bg-gray-100
+                                  {% endif %}
+                               "
+                        >
+                            <text class="
+                                    text-xs text-nowrap
+                                    {% if not request.GET.sort and not request.GET.search %}
+                                        bg-[#AF1E2A] text-white
+                                    {% else %}
+                                        text-[#AF1E2A]
+                                    {% endif %}
+                                ">
+                                Показать все
+                            </text>
+                            <div class="w-6 h-6">
+                                {% if not request.GET.sort and not request.GET.search %}
+                                    <img src="{% static 'img/_src/icons/arrow_drop_down_white.svg' %}"
+                                         alt="show all"/>
+                                {% else %}
+                                    <img src="{% static 'img/_src/icons/arrow_drop_down.svg' %}" alt="show all"/>
+                                {% endif %}
+                            </div>
+                        </a>
+                    </div>
+                    <form method="get" class="w-full">
+                        <label>
+                            <input
+                                    onchange="this.form.submit()"
+                                    type="text"
+                                    name="search"
+                                    value="{{ request.GET.search }}"
+                                    placeholder="Быстрый поиск информации по ключевым словам..."
+                                    class="h-[39px] font-[600] text-[12px] text-black bg-[#F5F5F5] rounded-[16px] placeholder:text-[12px] px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-[#1E1E1E] w-full"
+                            />
+                        </label>
+                    </form>
+                </div>
+                <div class=" flex mb-6 overflow-x-auto w-full">
+                    <a href="{% url 'news:laws' %}"
+                       class="shrink-0 tab-button text-[12px] p-[10px] font-medium pb-2 border-b-3
+                           {% if not selected_category %}
+                               border-red-600 text-red-600
+                           {% else %}
+                               border-transparent text-gray-600
+                           {% endif %}">
+                        Все
+                    </a>
+                    {% for key, label in categories %}
+                        <a href="?category={{ key }}"
+                           class="shrink-0 tab-button text-[12px] p-[10px] font-medium pb-2 border-b-3
+                               {% if selected_category == key %}
+                                   border-red-600 text-red-600
+                               {% else %}
+                                   border-transparent text-gray-600
+                               {% endif %}">
+                            {{ label }}
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="flex flex-col w-full h-auto p-2">
+                    <div class="main-news flex flex-col gap-4 pt-[10px]">
+                        {% for category in categorized_laws %}
+                            <div class="flex flex-col">
+                                <div class="flex flex-row justify-between mb-3">
+                                    <h2 class="font-bold text-2xl">{{ category.title }}</h2>
+                                </div>
+
+                                {% for law in category.laws %}
+                                    <div class="flex flex-row max-sm:flex-col max-sm:gap-3 sm:items-center justify-between px-3 sm:py-3 pb-6 border-[#EFEFEF] border-b-1">
+                                        <div class="flex flex-col gap-[10px]">
+                                            {% if law.is_new %}
+                                                <div class="flex justify-center items-center text-[10px] text-white rounded-[16px] bg-[#DF3131] py-1 px-2 w-fit h-4">Новое</div>
+                                            {% endif %}
+                                            <p class="text-[14px]">{{ law.created_date|date:"d.m.Y" }}</p>
+                                            <div class="flex item-center gap-[10px]">
+                                                <img class="w-[24px] h-[24px] mt-1"
+                                                     src="{% static 'img/_src/icons/article.svg' %}">
+                                                <text class="font-bold text-[20px]">{{ law.title }}</text>
+                                            </div>
+
+                                            {% if law.description %}
+                                                <text class="text-sm">{{ law.description }}</text>
+                                            {% endif %}
+                                        </div>
+                                        <div class="flex gap-3">
+                                            <a href="
+                                                {% if law.file_url %}
+                                                    {{ law.file_url }}
+                                                {% else %}
+                                                    {{ law.file.url }}
+                                                {% endif %}
+                                                "
+                                               class="cursor-pointer bg-[#F5F5F5] rounded-lg flex items-center justify-center p-[6px] w-9 h-9">
+                                                <img class="" src="{% static 'img/_src/icons/visibility.svg' %}"
+                                                     alt="details"/>
+                                            </a>
+                                            <a href='?detailedId={{ law.id }}'
+                                               class="cursor-pointer bg-[#F5F5F5] rounded-lg flex items-center justify-center p-[6px] w-9 h-9">
+                                                <img class="w-[36px] h-[36px]"
+                                                     src="{% static 'img/_src/icons/forum.svg' %}"
+                                                     alt="download"/>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col lg:max-w-[400px] gap-2">
+                <div class="flex flex-col w-full h-auto shadow-[0px_4px_4px_0px_#0000001A] bg-white p-6 rounded-[16px]">
+                    <div class="flex flex-row justify-between w-full gap-[64px] h-[86px] border-b-2 border-[#EFEFEF] font-[700] text-[24px]">
+                        Последние изменения в законодательстве
+                    </div>
+                    <div class="flex flex-col w-full h-auto">
+                        {% for law in side_laws|slice:":3" %}
+                            <div class="flex flex-col w-full gap-[10px] p-3 border-b-1 border-[#EFEFEF]">
+                                {% if law.is_new %}
+                                    <div class="flex justify-center items-center text-[10px] text-white rounded-[16px] bg-[#DF3131] py-1 px-2 w-fit h-4">Новое</div>
+                                {% endif %}
+                                <div class="flex flex-row max-sm:flex-col max-sm:gap-3 sm:items-center items-start flex-nowrap justify-between">
+                                    <div class="flex flex-col gap-2">
+                                        <text class="font-[700] text-[20px]">{{ law.title }}</text>
+                                        {% if law.description %}
+                                            <text class="text-sm text-[#787878]">{{ law.description }}</text>
+                                        {% endif %}
+                                    </div>
+                                    <a href="
+                                        {% if law.file_url %}
+                                        	{{ law.file_url }}
+                                        {% else %}
+                                        	{{ law.file.url }}
+                                        {% endif %}
+                                    "
+                                       class="cursor-pointer bg-[#F5F5F5] rounded-lg flex items-center justify-center p-[6px] min-w-[36px] min-h-[36px] max-w-[36px] max-h-[36px]">
+                                        <img class="w-[36px] h-[36px]"
+                                             src="{% static 'img/_src/icons/visibility.svg' %}" alt="details"/>
+                                    </a>
+                                </div>
+                                <div class="text-[14px] font-[400] text-[#444444] flex justify-end">{{ law.created_date|date:"d.m.Y" }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% if detailed_law %}
+        <div
+                id="lawCommentModal"
+                class="max-lg:px-6 fixed inset-0 z-50 hidden items-start justify-center bg-[#1E1E1EBF]/75 pt-[94px]"
+                onclick="closeModal('lawCommentModal')"
+        >
+            <!-- Modal Container -->
+            <div class="bg-white rounded-2xl w-full max-w-5xl p-6 shadow-xl text-sm" onclick="event.stopPropagation()">
+                <!-- Header -->
+                <div class="flex flex-col border-b-3 border-b-[#F5F5F5] gap-1 mb-6">
+                    <h2 class="max-md:text-xl text-2xl font-bold mb-1">Изменение в правилах проведения обучения по охране труда</h2>
+                    <p class="max-md:text-sm font-medium mb-3">Внесены изменения в порядок проведения обучения и проверки знаний по
+                        безопасности, и охране труда</p>
+                </div>
+                <div class="flex flex-col w-full h-auto gap-6">
+                    <div class="flex flex-col">
+                        <p class="font-bold ml-[9px] mb-3">Экспертные комментарии</p>
+                        {% for comment in comments %}
+                            <div class="flex flex-row justify-start items-center pt-2 border-b-1 border-[#EFEFEF] py-3">
+                                <div class="flex flex-col ml-[9px] gap-0.5">
+                                    <p class="font-bold text-sm">{{ comment.author_full_name }}</p>
+                                    <p class="text-sm text-[#444444]">
+                                        {{ comment.text|safe }}
+                                    </p>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <p class="text-sm ml-[9px]">Ничего нет</p>
+                        {% endfor %}
+                    </div>
+                    {% if request.user.is_authenticated %}
+                        <form action="{% url 'news:create_law_comment' detailed_law.id %}" method="post">
+                            {% csrf_token %}
+                            <div class="flex flex-row w-full items-center">
+                                <label class="w-full">
+                                    <input type="text"
+                                           name="text"
+                                           placeholder="Ваш комментарий..."
+                                           class="w-full border-b-1 border-[#EFEFEF] text-[#444444] placeholder:text-[#444444] ml-[9px] py-3 text-sm focus:outline-none"/>
+                                </label>
+                                <button type="submit">
+                                    <img class="w-[24px] h-[24px]" src="{% static 'img/_src/icons/send.png' %}"
+                                         alt="send">
+                                </button>
+                            </div>
+                        </form>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const params = new URLSearchParams(window.location.search);
+                const detailedId = params.get('detailedId');
+
+                if (detailedId) {
+                    openModal('lawCommentModal')
+
+                    const url = new URL(window.location);
+                    url.searchParams.delete('detailedId');
+                    window.history.replaceState({}, document.title, url);
+                }
+            });
+        </script>
+    {% endif %}
+
+{% endblock %}

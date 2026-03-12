@@ -1,0 +1,241 @@
+{% load sms_confirm_modal %}
+{% load static %}
+<html lang="ru">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KB1KDHHHNJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-KB1KDHHHNJ');
+    </script>
+
+    <meta charset="utf-8"/>
+    {% block meta_data %}
+        <title>
+            Портал по охране труда и технике безопасности в Казахстане.
+        </title>
+        <meta
+                name="description"
+                content="Инструкции, законы, новости и готовые решения - всё, что нужно специалисту ТБ.
+                        Только проверенная информация, умный поиск и ежедневные обновления - чтобы работать уверенно и безопасно."
+        />
+        <meta property="og:image" content="{% static 'img/@1x/preview.jpg' %}"/>
+    {% endblock meta_data %}
+    <link rel="preconnect" href="https://d2z6dsbl451t3b.cloudfront.net"/>
+    <link rel="dns-prefetch" href="https://d2z6dsbl451t3b.cloudfront.net"/>
+    <link rel="dns-prefetch" href="https://01.imaq.kz"/>
+    <link
+            rel="shortcut icon"
+            href="{% static 'img/fav.svg' %}"
+            type="image/x-icon"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="keywords" content=""/>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
+</head>
+<body class="max-lg:bg-white bg-[#F5F5F5]">
+
+<header class="hidden lg:flex justify-center items-center h-[105px] bg-[#7D151E]">
+    <div class="flex w-full mx-[100px] justify-between text-white flex gap-8 items-center">
+        <div class="flex gap-8">
+            <div class="flex gap-6">
+                <a href="{% url 'news:index' %}">
+                    <img
+                            class="h-[70px] w-[250px]"
+                            src="{% static 'img/_src/icons/logo.png' %}"
+                            alt="logo"/>
+                </a>
+                <h1 class="font-[700] text-[16px] leading-5 w-full max-w-[228px] flex items-center">
+                    Безопасность — не требование, а культура...
+                </h1>
+            </div>
+
+            <a
+                    href="/"
+                    class="flex font-[700] text-[16px] items-center justify-center"
+            >Главная</a
+            >
+            {% if request.user.is_authenticated %}
+                <button onclick="openModal('askQuestionModal')"
+                        class="flex font-[700] text-[16px] items-center justify-center cursor-pointer">Задай вопрос
+                </button>
+            {% endif %}
+        </div>
+
+
+        <div class="flex gap-3">
+            <form method="get" action="{% url 'news:search_results' %}">
+                <input
+                        type="text"
+                        name="search"
+                        placeholder="Поиск через HSE GPT..."
+                        class="font-[600] h-[48px] text-[12px] text-black bg-[#F5F5F5] rounded-[16px] placeholder:text-[12px] h-[39px] rounded px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-[#1E1E1E] min-w-[300px]"
+                />
+            </form>
+
+            {% if request.user.is_authenticated %}
+                <button
+                        class="h-[48px] flex font-[600] text-[12px] text-[#AF1E2A] justify-center border-1 bg-white rounded-[16px] items-center border-solid px-6 py-3 text-nowrap"
+                >{{ request.user.profile.full_name }}</button>
+            {% else %}
+                <button
+                        onclick="openModal('authModal')"
+                        class="h-[48px] flex font-[600] text-[12px] text-[#AF1E2A] w-[84px] justify-center border-1 bg-white rounded-[16px] items-center border-solid px-6 py-3"
+                >
+                    Войти
+                </button>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+                <form method="post" action="{% url 'news:logout' %}">
+                    {% csrf_token %}
+                    <button
+                            type="submit"
+                            title="Выйти"
+                            class="cursor-pointer h-[48px] flex justify-center border-1 bg-white rounded-[16px] items-center border-solid px-6 py-3">
+                        <img class="min-w-6 min-h-6 w-6 h-6" src="{% static 'img/_src/icons/exit_to_app.svg' %}">
+                    </button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+{# mobile #}
+<header class="flex lg:hidden justify-end items-center bg-[#7D151E] p-6">
+    <div class="flex gap-3">
+        {% if request.user.is_authenticated %}
+            <button
+                    class="hidden sm:flex font-[600] text-[12px] text-white justify-center items-center text-nowrap"
+            >{{ request.user.profile.full_name }}</button>
+            <form method="post" action="{% url 'news:logout' %}">
+                {% csrf_token %}
+                <button
+                        type="submit"
+                        title="Выйти"
+                        class=" flex justify-center items-center ">
+                    <img class="min-w-8 min-h-8 w-8 h-8" src="{% static 'img/_src/icons/exit_to_app1.svg' %}">
+                </button>
+            </form>
+        {% else %}
+            <img class="h-8 w-8" src="{% static 'img/32/user.svg' %}" alt="user"/>
+        {% endif %}
+
+        <button onclick="toggleMenu()">
+            <img class="h-8 w-8" src="{% static 'img/32/menu.svg' %}" alt="menu"/>
+        </button>
+
+    </div>
+</header>
+
+<div id="mobileMenu"
+     class="fixed inset-0 z-50 bg-[#1E1E1E] text-white p-6 transform translate-x-full opacity-0 transition-all duration-300 ease-in-out pointer-events-none lg:hidden">
+    <div class="flex justify-start mb-4">
+        <button onclick="toggleMenu()">
+            <img src="{% static 'img/32/close.png' %}" alt="close" class="h-6 w-6"/>
+        </button>
+    </div>
+    <div class="flex flex-col justify-between h-[90%]">
+        <div class="flex flex-col gap-4 text-base font-semibold">
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 border-1 border-[#2B2B2B] rounded-2xl p-6">
+                <img src="{% static 'img/_src/icons/logo.png' %}" class="h-[64px]" alt="logo"/>
+                <p class="text-sm ">Безопасность —<br/>не требование, а культура…</p>
+            </div>
+            <form method="get" action="{% url 'news:search_results' %}">
+                <input
+                        type="text"
+                        name="search"
+                        placeholder="Поиск через HSE GPT..."
+                        class="w-full p-4  text-black text-base bg-white rounded-2xl placeholder:text-black"/>
+            </form>
+
+            <a href="/" class="bg-[#2B2B2B] rounded-2xl p-4">Главная</a>
+            {% if request.user.is_authenticated %}
+                <button onclick="openModal('askQuestionModal')"
+                        class="flex flex-start cursor-pointer bg-[#2B2B2B] rounded-2xl p-4">Задай вопрос
+                </button>
+            {% endif %}
+            <div class="flex gap-4">
+
+            </div>
+        </div>
+        <div class="flex w-full">
+            {% if request.user.is_authenticated %}
+                <button
+                        class="flex font-[600] w-full items-center bg-[#2B2B2B] rounded-2xl p-4"
+                >{{ request.user.profile.full_name }}</button>
+            {% else %}
+                <button
+                        onclick="openModal('authModal')"
+                        class="flex font-[600]  w-full items-center bg-[#2B2B2B] rounded-2xl p-4"
+                >
+                    Войти в систему
+                </button>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li class="text-sm text-white p-2
+                      {% if message.tags == 'success' %} bg-green-600
+                      {% elif message.tags == 'error' %} bg-red-600
+                      {% elif message.tags == 'warning' %} bg-yellow-500
+                      {% else %} bg-blue-500
+                      {% endif %}">
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        const isHidden = menu.classList.contains('pointer-events-none');
+
+        if (isHidden) {
+            // Показать меню
+            menu.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none');
+            menu.classList.add('translate-x-0', 'opacity-100');
+        } else {
+            // Скрыть меню
+            menu.classList.remove('translate-x-0', 'opacity-100');
+            menu.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+        }
+    }
+</script>
+
+<script>
+    function goBackOrHome() {
+        if (document.referrer === '' || window.history.length <= 1) {
+            window.location.href = '/';
+        } else {
+            window.history.back();
+        }
+    }
+</script>
+
+{% include "includes/auth_modal.html" %}
+{% include "includes/ask_question.html" %}
+{% render_sms_confirm_modal show_sms_confirm_modal %}
+
+{% block content %} {% endblock content %}
+</body>
+</html>
+

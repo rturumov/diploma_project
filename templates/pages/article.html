@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load calendar_widget %}
+
+{% block content %}
+    <div class="flex flex-col mx-6 lg:mx-[100px] mb-6 justify-center">
+        <div class="flex flex-row max-lg:flex-col gap-2 pt-[5px]">
+            <div class="flex flex-col  w-full h-auto shadow-[0px_4px_4px_0px_#0000001A] gap-6 bg-white mt-3 px-6 py-6 rounded-[16px]">
+                <div class="flex flex-row max-md:flex-col w-full gap-6 items-start">
+                    <div class="flex items-start">
+                        <a href="#" onclick="goBackOrHome()" class="h-[29px] flex justify-start">
+                            <img class="w-[36px] h-[36px] min-w-[36px] min-h-[36px]"
+                                 src="{% static 'img/_src/icons/Frame 115.svg' %}" alt="back">
+                        </a>
+                    </div>
+                    <div class="flex flex-col w-full h-auto">
+                        <div class="main-news flex flex-col gap-4 ">
+                            <div class="flex flex-col gap-5">
+                                {% include 'includes/news/card.html' with article=article %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col w-full h-auto gap-6">
+                    <div class="flex flex-col">
+                        <p class="font-bold ml-[9px] mb-3">Экспертные комментарии</p>
+                        {% for comment in comments %}
+                            <div class="flex flex-row justify-start items-center pt-2 border-b-1 border-[#EFEFEF] py-3">
+                                <div class="flex flex-col ml-[9px] gap-0.5">
+                                    <p class="font-bold text-sm">{{ comment.author_full_name }}</p>
+                                    <p class="text-sm text-[#444444]">
+                                        {{ comment.text|safe }}
+                                    </p>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <p class="text-sm ml-[9px]">Ничего нет</p>
+                        {% endfor %}
+                    </div>
+                    {% if request.user.is_authenticated %}
+                        <form action="{% url 'news:create_article_comment' article.alias %}" method="post">
+                            {% csrf_token %}
+                            <div class="flex flex-row w-full items-center">
+                                <label class="w-full">
+                                    <input type="text"
+                                           name="text"
+                                           placeholder="Ваш комментарий..."
+                                           class="w-full border-b-1 border-[#EFEFEF] text-[#444444] placeholder:text-[#444444] ml-[9px] py-3 text-sm focus:outline-none"/>
+                                </label>
+                                <button type="submit">
+                                    <img class="w-[24px] h-[24px]" src="{% static 'img/_src/icons/send.png' %}"
+                                         alt="send">
+                                </button>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="flex flex-col lg:max-w-[400px]">
+                <div class="flex flex-col w-full h-auto shadow-[0px_4px_4px_0px_#0000001A] bg-white mt-3 p-6 rounded-[16px]">
+                    <div class="flex flex-row justify-between w-full gap-[64px] h-[80px] border-b-2 border-[#EFEFEF] font-[700] text-[24px]">
+                        Еженедельный дайджест новостей
+                    </div>
+                    <div class="flex flex-col w-full h-auto">
+                        {% render_calendar calendar_year calendar_month events_by_day %}
+
+                        {% include 'includes/news/calendar_news.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getEventsByDate(date) {
+            fetch(`{% url 'news:get_news_by_date' %}?date=${date}`)
+                .then((res) => res.text())
+                .then((html) => {
+                    document.querySelectorAll(".calendarNews").forEach(el => el.innerHTML = html)
+                })
+                .catch((err) => {
+                    console.error("Failed to fetch events:", err);
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            getEventsByDate(new Date())
+        });
+    </script>
+{% endblock %}

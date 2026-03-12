@@ -1,0 +1,73 @@
+{% load calendar_widget %}
+{% load static %}
+
+<div class="calendar">
+    <div class="flex bg-[#3F8CFF] justify-between items-center">
+        <a href="?calendar_year={{ prev_year }}&calendar_month={{ prev_month }}"
+           class="cursor-pointer w-8 h-8 flex justify-center items-center">
+            <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.80737 8.54687L0.697998 4.4375L4.80737 0.328125L5.76623 1.28698L2.61571 4.4375L5.76623 7.58802L4.80737 8.54687Z"
+                      fill="white"></path>
+            </svg>
+        </a>
+        <p class="text-medium text-white">{{ title | upper }}</p>
+        <a href="?calendar_year={{ next_year }}&calendar_month={{ next_month }}"
+           class="cursor-pointer w-8 h-8 flex justify-center items-center">
+            <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.9734 4.4375L0.822876 1.28698L1.78173 0.328125L5.89111 4.4375L1.78173 8.54687L0.822876 7.58802L3.9734 4.4375Z"
+                      fill="white"></path>
+            </svg>
+        </a>
+    </div>
+    <div class="bg-[#73ABFF] flex justify-around item-center">
+        {% for weekday in weekdays %}
+            <span class="text-white text-sm py-1">
+                        {{ weekday | upper }}
+                     </span>
+        {% endfor %}
+    </div>
+    <div class="flex flex-col">
+        {% for week in month_days %}
+            <div class="flex justify-around mt-1">
+                {% for day in week %}
+                    {% if day != 0 %}
+                        <button onclick="getEventsByDate('{% format_date_ymd year month day %}')"
+                                class="w-10 h-10 flex justify-center items-center cursor-pointer rounded-full hover:bg-blue-300 hover:text-white transition duration-150 ease-in-out
+                              {% if day == event_date.day and month == event_date.month and year == event_date.year %}
+                                 bg-[#F05F4B] text-white
+                              {% elif events_by_day|dict_key:day|length > 0 %}
+                                 bg-[#73ABFF] text-white
+                              {% endif %}
+                        ">
+                            {{ day }}
+                        </button>
+                    {% else %}
+                        <div class="w-10 h-10">
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        const params = new URLSearchParams(window.location.search);
+        const eventDate = params.get('event_date');
+        const calendarYear = params.get('calendar_year');
+        const calendarMonth = params.get('calendar_month');
+
+        if (eventDate || calendarYear || calendarMonth) {
+            document.querySelectorAll('.calendar').forEach(el => {
+                const isVisible = el && el.offsetParent !== null;
+                if (isVisible) {
+                    el.scrollIntoView({block: 'center'});
+                }
+            });
+        }
+    });
+</script>

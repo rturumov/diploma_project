@@ -1,0 +1,66 @@
+{% load static %}
+<!-- Modal Overlay -->
+<div
+        id="smsConfirmModal"
+        class="fixed inset-0 z-50 items-start justify-center bg-[#1E1E1EBF]/75 pt-[94px]
+        {% if show %}
+        	flex
+        {% else %}
+        	hidden
+        {% endif %}"
+        onclick="closeSmsConfirmModal()"
+>
+    <!-- Modal Container -->
+    <div class="bg-white rounded-2xl w-full max-w-md p-6 shadow-xl text-sm" onclick="event.stopPropagation()">
+        <!-- Header -->
+        <div class="flex flex-col border-b-3 border-b-[#F5F5F5] gap-1 mb-6">
+            <h2 class="text-2xl font-bold mb-1">Регистрация</h2>
+            <p class="font-medium mb-3">Введите контактные данные, чтобы получить бесплатный доступ</p>
+        </div>
+        <form method="POST" action="{% url 'users:register_confirm' %}" class="space-y-4">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            <p>На вашу почту был отправлен код, введите его, чтобы завершить регистрацию на портале</p>
+
+            <div class="flex gap-[10px]">
+                <img src="{% static 'img/16/code.svg' %}" alt="code"/>
+                {{ form.code }}
+            </div>
+
+            {% if messages %}
+              <ul class="space-y-2">
+                {% for message in messages %}
+                  <li class="text-sm p-2 rounded
+                      {% if message.tags == 'success' %} text-green-600
+                      {% elif message.tags == 'error' %} text-red-600
+                      {% elif message.tags == 'warning' %} text-yellow-500
+                      {% else %} text-blue-500
+                      {% endif %}">
+                    {{ message }}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+            <!-- Submit Button -->
+            <button
+                    type="submit"
+                    class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl py-3"
+            >
+                Войти
+            </button>
+
+            <!-- Link -->
+            <div class="text-center pt-4">
+                <a href="/" class="text-sm text-gray-500 underline">Вернуться на главную</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function closeSmsConfirmModal() {
+        window.location.href = '/auth/register/abort'
+    }
+</script>

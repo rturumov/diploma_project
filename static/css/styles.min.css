@@ -1,0 +1,30 @@
+body {
+  font-family: "Inter", "sans-serif";
+  color: #1E1E1E;
+}
+
+select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+}
+
+/* For IE10 */
+select::-ms-expand {
+  display: none;
+}
+
+select:focus-visible {
+  outline: none;
+}
+
+/* apply to any element with class `thin-scrollbar` */
+.thin-scrollbar::-webkit-scrollbar {
+  height: 6px;         /* for horizontal scrollbars */
+  width: 6px;          /* for vertical scrollbars if needed */
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
