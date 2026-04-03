@@ -18,6 +18,7 @@ urlpatterns = [
     # password successfully reset
     path('reset/complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('trix-editor/', include('trix_editor.urls')),
+    path('ai/', include('ai_chat.urls')),
 ]
 
 if settings.DEBUG:
