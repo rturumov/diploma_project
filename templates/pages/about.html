@@ -1,143 +1,140 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
-    <div class="flex flex-col justify-center mx-[100px]">
-        <div class="flex flex-row gap-2 justify-center pt-3">
-            <div class="flex flex-col max-w-[1312px] w-full h-auto shadow-[0px_4px_4px_0px_#0000001A] bg-white p-6 rounded-[16px]">
-                <div class="flex flex-row w-full gap-6 pb-3 border-b-3 border-[#EFEFEF] items-center">
-                    <a  href="#" onclick="goBackOrHome()" class="h-[29px] flex justify-center">
-                        <img class="w-[36px] h-[36px]" src="{% static 'img/_src/icons/Frame 115.svg' %}">
-                    </a>
-                    <div class="flex flex-col">
-                        <text class="font-[700] text-[24px]">Qauipsiz Analytics</text>
-                        <text class="font-[500] text-[16px]">Это переосмысление культуры безопасности</text>
-                    </div>
-                </div>
-                <div class="flex flex-col p-6 gap-18">
-                    <div class="flex flex-col gap-6 text-[32px] font-[700]">
-                        <p class="text-[#F05F4B]">Мы, Qauipsiz Analytics</p>
-                        <p>Площадка нового поколения для развития мышления и культуры безопасности.</p>
-                    </div>
-                    <div class="flex flex-row items-center h-[218px] w-full bg-[#7D151E] text-[32px] rounded-[12px] font-[700] gap-6 p-6">
-                        <p class="text-white">Проблемы <br>HSE</p>
-                        <div class="bg-white h-[170px] rounded-[12px] items-center justify-center flex flex-col max-w-[473px] w-full">
-                            <p class="text-[#7D151E] text-[48px]">1</p>
-                            <p class="leading-10 flex items-center">Безопасность как</p>
-                            <p>формальность</p>
-                        </div>
-                        <div class="bg-white h-[170px] rounded-[12px] items-center justify-center flex flex-col max-w-[473px] w-full">
-                            <p class="text-[#7D151E] text-[48px]">2</p>
-                            <p class="leading-10 flex items-center">Разрозненность </p>
-                            <p>специалистов HSE</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-row gap-6">
-                        <div class="flex flex-col gap-6 w-full  max-w-[596px]">
-                            <p class="text-[32px] font-[700]">Проблема №1</p>
-                            <div class="flex flex-col px-6 py-4 text-[24px] h-auto font-[500] h-[167px] max-w-[596px] w-full gap-3 rounded-[12px] border-1">
-                                <p>Сухая информация</p>
-                                <p>Отсутствие интереса и вовлеченности</p>
-                                <p>Нет контекста для действий</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-6 w-full max-w-[596px">
-                            <p class="text-[32px] font-[700]">Проблема №2</p>
-                            <div class="flex flex-col px-6 py-4 text-[24px] min-h-[167px] h-full font-[500] h-[167px] max-w-[596px] w-full gap-4 rounded-[12px] border-1">
-                                <p>Информационная изоляция</p>
-                                <p>Нет открытого живого пространства</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-6 text-[32px] font-[700]">
-                        <p class="text-[#3F8CFF]">Итоги за 2 месяца в Telegram</p>
-                        <p>Telegram-канал объединяет специалистов и формирует системный подход.</p>
-                        <div class="flex flex-row gap-6">
-                            <div class="flex flex-col  items-center justify-center h-[170px] w-full max-w-[389px] rounded-[16px] text-white bg-[#3F8CFF]">
-                                <p>400+</p>
-                                <p>подписчиков</p>
-                            </div>
-                            <div class="flex flex-col  items-center justify-center h-[170px] w-full max-w-[389px] rounded-[16px] text-white bg-[#3F8CFF]">
-                                <p>1000+</p>
-                                <p>просмотров</p>
-                            </div>
-                            <div class="flex flex-col  items-center justify-center h-[170px] w-full max-w-[389px] rounded-[16px] text-white bg-[#3F8CFF]">
-                                <p>90+ постов</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-6 text-[32px] font-[700]">
-                        <p class="text-[#F05F4B]">Итоги за 2 месяца в Youtube</p>
-                        <div class="flex flex-row gap-6">
-                            <div class="flex flex-col  items-center justify-center h-[170px] w-full max-w-[389px] rounded-[16px] text-white bg-[#F05F4B]">
-                                <p>182+</p>
-                                <p>подписчиков</p>
-                            </div>
-                            <div class="flex flex-col  items-center justify-center h-[170px] w-full max-w-[389px] rounded-[16px] text-white bg-[#F05F4B]">
-                                <p>2909+</p>
-                                <p>просмотров</p>
-                            </div>
-                            <div class="flex flex-col  items-center justify-center h-[170px] w-full max-w-[389px] rounded-[16px] text-white bg-[#F05F4B]">
-                                <p>27+ видео</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-6 text-[32px] font-[700]">
-                        <p>Результаты</p>
-                        <div class="flex flex-row gap-6">
-                            <img class="w-[30px] h-[32px]" src="{% static 'img/_src/icons/local_fire_department.png' %}">
-                            <p>HSE становится интересным и вовлекающим</p>
-                        </div>
-                        <div class="flex flex-row gap-6">
-                            <img class="w-[30px] h-[32px]" src="{% static 'img/_src/icons/local_fire_department.png' %}">
-                            <p>Активное комьюнити специалистов из разных отраслей</p>
-                        </div>
-                        <div class="flex flex-row gap-6">
-                            <img class="w-[30px] h-[32px]" src="{% static 'img/_src/icons/local_fire_department.png' %}">
-                            <p>Использование контента в тренингах, аудитах и совещаниях</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-6">
-                        <p class="text-[32px] font-[700] leading-10">Три честные мысли с Qauipsiz Құрылтай, которые стоит услышать каждому, кто работает в сфере охраны труда.</p>
-                        <div class="flex gap-6 flex-row overflow-x-auto">
-                            <img class="" src="{% static 'img/_src/icons/Frame 196.png' %}">
-                            <img class="" src="{% static 'img/_src/icons/Frame 197.png' %}">
-                            <img class="" src="{% static 'img/_src/icons/Frame 198.png' %}">
-                            <img class="" src="{% static 'img/_src/icons/Frame 199.png' %}">
-                            <img class="" src="{% static 'img/_src/icons/Frame 200.png' %}">
-                        </div>
-                        <div class="flex flex-col gap-6 font-[400] text-[24px] leading-7">
-                            <p class="text-[28px] font-[600] leading-8">1. Проблема не в документах — проблема в менталитете и контроле
-                                <br> Даниель Макбузов, руководитель отдела, ГК «ЮсКо»:</p>
-                            <p class="italic">«У нас в Казахстане две основные причины, почему происходят несчастные случаи. Первая — это менталитет. Даже если у нас есть обучение, инструкции, всё обеспечено — многие относятся к этому формально. А вторая — это отсутствие настоящего контроля. Руководители дают задание, но не контролируют выполнение. Отсюда и трагедии. Даже в крупнейших компаниях случаются групповые инциденты.»</p>
-                            <p>Это не вопрос бюджета или бумаг — это вопрос подхода к людям и дисциплине исполнения. Пока “дали задание — и ушли” считается нормой, ничего не изменится.</p>
-                        </div>
-                        <div class="flex flex-col gap-6 font-[400] text-[24px] leading-7">
-                            <p class="text-[28px] font-[600] leading-8">2. Все инструменты уже есть. Но кто их применяет?
-                                <br> Обсуждение из зала:</p>
-                            <p class="italic">«Чек-листы, стандарты, ИСО, процедуры — всё это у нас есть. Но в реальности на местах мало кто ими пользуется по назначению. Всё ждут: “Вот придёт проверка — тогда будем делать”. Или “Вот индустриальный консультант спустит сверху — тогда внедрим”. Хотя все инструменты уже есть в системе. Просто ими не пользуются.»</p>
-                            <p>Безопасность — это не внешняя проверка. Это внутренняя зрелость. И пока мы не начнём использовать то, что уже есть, не будет результата.</p>
-                        </div>
-                        <div class="flex flex-col gap-6 font-[400] text-[24px] leading-7">
-                            <p class="text-[28px] font-[600] leading-8">3. На аварии не реагируют по инструкции — реагируют так, как отработали
-                                <br> Найри Сейтжанова, HSE эксперт:</p>
-                            <p class="italic">«Когда случается инцидент — человек не вспоминает, что ему говорили на лекции. Он действует. И часто — неадекватно. Даже если он знает знаки, маршруты, газы, инструкции. Только повторяемость, учения и доведение до автоматизма формируют осознанное поведение. Я это вижу на практике.»</p>
-                            <p class="text-[28px] font-[600] leading-8">Знания — это база. Но спасают жизни не знания, а навык действовать без паники. Навык, который появляется только в результате практики и реальных тренировок.</p>
-                            <p class="text-[28px] font-[600] leading-8 text-[#DF3131]">Итог? <br> Мы не изобретаем охрану труда заново. Она уже есть…</p>
+{% extends 'base.html' %}
+{% load static %}
 
-                        </div>
+{% block content %}
+    <section class="mx-[100px] pt-4 pb-10 max-lg:mx-0 max-lg:px-6">
+        <div class="rounded-[20px] bg-white shadow-[0px_10px_30px_0px_#00000014] border border-[#EFEFEF] overflow-hidden">
+            <div class="bg-[linear-gradient(120deg,#7D151E_0%,#A51F2A_58%,#D53342_100%)] text-white p-8 max-lg:p-6">
+                <div class="flex items-center justify-between gap-4 max-lg:flex-col max-lg:items-start">
+                    <a href="#" onclick="goBackOrHome()"
+                       class="h-[40px] w-[40px] rounded-full bg-white/20 flex justify-center items-center hover:bg-white/30 transition">
+                        <img class="w-[20px] h-[20px]" src="{% static 'img/_src/icons/Frame 115.svg' %}" alt="Назад">
+                    </a>
+                    <span class="text-[13px] uppercase tracking-[2px] opacity-90">Safety Hub</span>
+                </div>
+                <h1 class="pt-6 text-[42px] leading-[1.1] font-[800] max-lg:text-[30px]">О нас</h1>
+                <p class="pt-3 text-[18px] leading-7 max-w-[820px] text-white/95 max-lg:text-[16px]">
+                    Мы создаем современную площадку для специалистов HSE: объединяем практический опыт,
+                    экспертные материалы и инструменты, которые помогают повышать культуру безопасности ежедневно.
+                </p>
+                <div class="grid grid-cols-3 gap-4 pt-8 max-lg:grid-cols-1">
+                    <div class="rounded-[14px] bg-white/15 backdrop-blur-sm p-4">
+                        <p class="text-[28px] font-[800] leading-8">24/7</p>
+                        <p class="text-[14px] pt-1 text-white/85">доступ к базе материалов</p>
+                    </div>
+                    <div class="rounded-[14px] bg-white/15 backdrop-blur-sm p-4">
+                        <p class="text-[28px] font-[800] leading-8">HSE</p>
+                        <p class="text-[14px] pt-1 text-white/85">фокус на реальной практике</p>
+                    </div>
+                    <div class="rounded-[14px] bg-white/15 backdrop-blur-sm p-4">
+                        <p class="text-[28px] font-[800] leading-8">100%</p>
+                        <p class="text-[14px] pt-1 text-white/85">ориентация на полезный контент</p>
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col max-w-[400px] gap-2 w-full">
-                <div class="flex flex-col w-full h-auto shadow-[0px_4px_4px_0px_#0000001A] bg-white p-6 rounded-[16px] gap-3">
-                    <div class="flex flex-row justify-between w-full gap-[64px] h-[70px] border-b-2 border-[#EFEFEF] font-[700] text-[24px] leading-7">
-                        Мы, на других <br>платформах
+
+            <div class="p-8 max-lg:p-6 flex flex-col gap-6">
+                <div class="flex flex-col gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <article class="border border-[#DADFE6] rounded-[16px] p-5 bg-[#F3F5F8]">
+                            <p class="text-[12px] uppercase tracking-[1.5px] text-[#7D151E] font-[700]">Что мы делаем</p>
+                            <h3 class="font-[700] text-[22px] pt-2">Экосистема знаний HSE</h3>
+                            <p class="pt-2 text-[16px] leading-6 text-[#3B3B3B]">
+                                Собираем новости, инструкции, документы, чек-листы и кейсы автоматизации
+                                в единую и удобную платформу.
+                            </p>
+                        </article>
+                        <article class="border border-[#DADFE6] rounded-[16px] p-5 bg-[#F3F5F8]">
+                            <p class="text-[12px] uppercase tracking-[1.5px] text-[#7D151E] font-[700]">Для кого</p>
+                            <h3 class="font-[700] text-[22px] pt-2">Профессиональное сообщество</h3>
+                            <p class="pt-2 text-[16px] leading-6 text-[#3B3B3B]">
+                                Для инженеров, руководителей, преподавателей и всех, кто отвечает за безопасность
+                                людей и процессов.
+                            </p>
+                        </article>
                     </div>
-                    <div class="flex flex-col w-full h-auto text-[24px] gap-[12px] font-[700]">
-                        <a href="https://t.me/PrimeHSEanalytics" class="text-[#3F8CFF]">Telegram</a>
-                        <a href="https://www.youtube.com/@HSEQauipsizAnalytics" class="text-[#DF3131]">Youtube</a>
-<!--                        <a href="" class="text-[#AF3FFF]">Instagram</a>-->
+
+                    <div class="border border-[#DADFE6] rounded-[16px] p-6 bg-[#F3F5F8]">
+                        <h3 class="font-[700] text-[26px]">Наши ценности</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+                            <div class="rounded-[12px] bg-white border border-[#EFEFEF] p-4">
+                                <p class="font-[700]">Практичность</p>
+                                <p class="pt-1 text-[15px] text-[#4B5563]">Только материалы, которые можно использовать в работе сразу.</p>
+                            </div>
+                            <div class="rounded-[12px] bg-white border border-[#EFEFEF] p-4">
+                                <p class="font-[700]">Открытость</p>
+                                <p class="pt-1 text-[15px] text-[#4B5563]">Живое общение и обмен опытом между специалистами из разных отраслей.</p>
+                            </div>
+                            <div class="rounded-[12px] bg-white border border-[#EFEFEF] p-4">
+                                <p class="font-[700]">Качество</p>
+                                <p class="pt-1 text-[15px] text-[#4B5563]">Проверенные источники, актуальные данные и понятная структура.</p>
+                            </div>
+                            <div class="rounded-[12px] bg-white border border-[#EFEFEF] p-4">
+                                <p class="font-[700]">Развитие</p>
+                                <p class="pt-1 text-[15px] text-[#4B5563]">Постоянно обновляем платформу и добавляем новые форматы.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-[#DADFE6] rounded-[16px] p-6 bg-[#F3F5F8]">
+                        <h3 class="font-[700] text-[26px]">Наша команда</h3>
+                        <p class="pt-2 text-[16px] text-[#4B5563]">
+                            Пример блока с командой. Можешь заменить имена, фото и описания под реальных участников.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-5">
+                            <article class="rounded-[14px] border border-[#D6DCE4] overflow-hidden bg-white">
+                                <img src="{% static 'img/_src/icons/aldiyar.jpeg' %}" alt="Участник команды 1" class="w-full aspect-square object-cover">
+                                <div class="p-4">
+                                    <p class="font-[700] text-[18px]">Садыков Алдияр</p>
+                                    <p class="text-[14px] text-[#7D151E] font-[600] pt-1">Фронтенд разработчик</p>
+                                </div>
+                            </article>
+                            <article class="rounded-[14px] border border-[#D6DCE4] overflow-hidden bg-white">
+                                <img src="{% static 'img/_src/icons/ilyas.jpeg' %}" alt="Участник команды 2" class="w-full aspect-square object-cover">
+                                <div class="p-4">
+                                    <p class="font-[700] text-[18px]">Шакиркожа Ильяс</p>
+                                    <p class="text-[14px] text-[#7D151E] font-[600] pt-1">Фронтенд разработчик</p>
+                                </div>
+                            </article>
+                            <article class="rounded-[14px] border border-[#D6DCE4] overflow-hidden bg-white">
+                                <img src="{% static 'img/_src/icons/rassul.jpeg' %}" alt="Участник команды 3" class="w-full aspect-square object-cover">
+                                <div class="p-4">
+                                    <p class="font-[700] text-[18px]">Турумов Расул</p>
+                                    <p class="text-[14px] text-[#7D151E] font-[600] pt-1">Бэкенд разработчик</p>
+                                </div>
+                            </article>
+                            <article class="rounded-[14px] border border-[#D6DCE4] overflow-hidden bg-white">
+                                <img src="{% static 'img/_src/icons/arnur.jpeg' %}" alt="Участник команды 4" class="w-full aspect-square object-cover">
+                                <div class="p-4">
+                                    <p class="font-[700] text-[18px]">Танибергенов Арнур</p>
+                                    <p class="text-[14px] text-[#7D151E] font-[600] pt-1">Бэкенд разработчик</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-[#F1F4F7] border border-[#DADFE6] rounded-[16px] p-5 h-full">
+                        <h3 class="font-[700] text-[22px]">Контакты</h3>
+                        <div class="pt-3 flex flex-col gap-2 text-[16px] text-[#3B3B3B]">
+                            <p>Email: info@safety-hub.kz</p>
+                            <p>Город: Алматы, Казахстан</p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-[16px] bg-[#1E1E1E] text-white p-5 h-full flex flex-col justify-between">
+                        <p class="text-[13px] uppercase tracking-[1.5px] text-white/70">Присоединяйтесь</p>
+                        <p class="pt-2 text-[18px] leading-7">
+                            Станьте частью сообщества, которое меняет подход к безопасности.
+                        </p>
+                        <a href="https://t.me/safety_hub_kz"
+                           class="inline-flex mt-4 px-4 py-2 rounded-[10px] bg-[#7D151E] font-[700] text-[14px] w-[200px] justify-center">
+                            Вступить в Telegram
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %}

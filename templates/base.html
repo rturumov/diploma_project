@@ -54,12 +54,12 @@
             <div class="flex gap-6">
                 <a href="{% url 'news:index' %}">
                     <img
-                            class="h-[70px] w-[250px]"
+                            class="h-[64px] w-[64px]"
                             src="{% static 'img/_src/icons/logo.png' %}"
                             alt="logo"/>
                 </a>
                 <h1 class="font-[700] text-[16px] leading-5 w-full max-w-[228px] flex items-center">
-                    Безопасность — не требование, а культура...
+                    Safety Hub - безопасность как стандарт работы
                 </h1>
             </div>
 
@@ -68,6 +68,7 @@
                     class="flex font-[700] text-[16px] items-center justify-center"
             >Главная</a
             >
+            <a href="{% url 'news:about' %}" class="flex font-[700] text-[16px] items-center justify-center">О нас</a>
             {% if request.user.is_authenticated %}
                 <button onclick="openModal('askQuestionModal')"
                         class="flex font-[700] text-[16px] items-center justify-center cursor-pointer">Задай вопрос
@@ -152,7 +153,7 @@
         <div class="flex flex-col gap-4 text-base font-semibold">
             <div class="flex flex-col md:flex-row items-start md:items-center gap-4 border-1 border-[#2B2B2B] rounded-2xl p-6">
                 <img src="{% static 'img/_src/icons/logo.png' %}" class="h-[64px]" alt="logo"/>
-                <p class="text-sm ">Безопасность —<br/>не требование, а культура…</p>
+                <p class="text-sm ">Safety Hub —<br/>безопасность как стандарт</p>
             </div>
             <form method="get" action="{% url 'news:search_results' %}">
                 <input
@@ -163,6 +164,7 @@
             </form>
 
             <a href="/" class="bg-[#2B2B2B] rounded-2xl p-4">Главная</a>
+            <a href="{% url 'news:about' %}" class="bg-[#2B2B2B] rounded-2xl p-4">О нас</a>
             {% if request.user.is_authenticated %}
                 <button onclick="openModal('askQuestionModal')"
                         class="flex flex-start cursor-pointer bg-[#2B2B2B] rounded-2xl p-4">Задай вопрос

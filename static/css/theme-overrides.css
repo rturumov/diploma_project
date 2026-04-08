@@ -1,0 +1,144 @@
+body {
+  color: #1f2937;
+  background: #f5f5f5;
+}
+
+.site-header {
+  background: linear-gradient(135deg, #0f0f10 0%, #1a1a1c 60%, #262629 100%) !important;
+  border-bottom: 1px solid #3a3a3d;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.34);
+}
+
+.site-header a,
+.site-header button,
+.site-header h1 {
+  color: #f7f7f7;
+}
+
+.site-header form input {
+  background: #ffffff !important;
+  border: 1px solid #cfd4dc;
+  color: #1f2937 !important;
+}
+
+.site-header form input::placeholder {
+  color: #6b7280 !important;
+}
+
+.site-mobile-menu {
+  background: #111214 !important;
+}
+
+.site-mobile-menu a,
+.site-mobile-menu button {
+  background: #212225 !important;
+  border: 1px solid #34363b;
+}
+
+main {
+  background-image: radial-gradient(circle at top right, rgba(240, 138, 36, 0.1), rgba(240, 138, 36, 0));
+}
+
+.page-home-content,
+.page-about main {
+  background-image: radial-gradient(circle at top right, rgba(240, 138, 36, 0.1), rgba(240, 138, 36, 0));
+}
+
+[class*="shadow-[0px_4px_4px_0px_#0000001A]"] {
+  box-shadow: 0 10px 26px rgba(17, 24, 39, 0.12) !important;
+}
+
+[class*="bg-[#7D151E]"] {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 70%, #383838 100%) !important;
+}
+
+[class*="text-[#AF1E2A]"],
+[class*="text-[#7D151E]"] {
+  color: #f08a24 !important;
+}
+
+[class*="border-[#EFEFEF]"] {
+  border-color: #e5e7eb !important;
+}
+
+[class*="bg-white"] {
+  border: 1px solid #d9dde5;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.1);
+}
+
+[class*="rounded-[16px]"],
+[class*="rounded-[12px]"] {
+  backdrop-filter: blur(1px);
+}
+
+[class*="text-[#F05F4B]"],
+[class*="text-[#DF3131]"] {
+  color: #f08a24 !important;
+}
+
+[class*="bg-[#F05F4B]"],
+[class*="bg-[#DF3131]"] {
+  background: #ff8a00 !important;
+}
+
+[class*="bg-[#3F8CFF]"] {
+  background: #ff9f1c !important;
+}
+
+[class*="text-[#3F8CFF]"] {
+  color: #e57a1f !important;
+}
+
+[class*="border-[#E0E0E0]"],
+[class*="border-[#D9D9D9]"],
+[class*="border-[#D8D8D8]"] {
+  border-color: #d1d5db !important;
+}
+
+button,
+a[class*="rounded"],
+input,
+select,
+textarea {
+  transition: all 0.2s ease;
+}
+
+button:hover,
+a[class*="rounded"]:hover {
+  filter: brightness(1.03);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(240, 138, 36, 0.2);
+  border-color: #f08a24 !important;
+}
+
+.prose a,
+a.text-\[\#3F8CFF\],
+a.text-\[\#AF1E2A\] {
+  color: #d96a00 !important;
+}
+
+/* Keep modal and CTA contrast readable after palette shift. */
+#authModal [class*="bg-[#7D151E]"],
+#askQuestionModal [class*="bg-[#7D151E]"],
+[class*="bg-[#1E1E1E]"] {
+  background: #141416 !important;
+}
+
+/* Make logo area more separated from page background. */
+.site-header img[src*="logo"] {
+  filter: drop-shadow(0 4px 10px rgba(255, 138, 0, 0.22));
+}
+
+.site-header a:hover,
+.site-header button:hover {
+  color: #ff9f1c;
+}
+
+.page-about {
+  background: #f5f5f5 !important;
+}
