@@ -13,7 +13,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SEC_KEY')
-
+GROQ_API_KEY = os.getenv('GROQ_API_KEY')
+HUGGINGFACE_API_KEY = os.getenv('HUGGINGFACE_API_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
@@ -32,6 +33,7 @@ CORS_ORIGIN_WHITELIST = [
 # Application definition
 
 INSTALLED_APPS = [
+    'ai_chat',
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.contenttypes',
@@ -91,7 +93,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': '12345',
-        'HOST': 'host.docker.internal',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
