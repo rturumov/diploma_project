@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 {% load calendar_widget %}
 
 <div class="calendarNews py-2">
@@ -9,7 +10,7 @@
             </a>
         {% endfor %}
     {% else %}
-        <p class="text-gray-500 text-[13px] italic pt-2">Новостей нет</p>
+        <p class="text-gray-500 text-[13px] italic pt-2">{% trans 'Новостей нет' %}</p>
     {% endif %}
 </div>
 

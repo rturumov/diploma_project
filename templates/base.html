@@ -79,16 +79,16 @@
 
             <a
                     href="/"
-                    class="flex font-[700] text-[16px] items-center justify-center"
+                    class="flex font-[700] text-[16px] items-center justify-center whitespace-nowrap"
             >{% trans "Главная" %}</a
             >
-            <a href="{% url 'news:about' %}" class="flex font-[700] text-[16px] items-center justify-center">{% trans "О нас" %}</a>
+            <a href="{% url 'news:about' %}" class="flex font-[700] text-[16px] items-center justify-center whitespace-nowrap">{% trans "О нас" %}</a>
             {% if request.user.is_authenticated %}
                 <button onclick="openModal('askQuestionModal')"
-                        class="flex font-[700] text-[16px] items-center justify-center cursor-pointer">{% trans "Задай вопрос" %}
+                        class="flex font-[700] text-[16px] items-center justify-center cursor-pointer whitespace-nowrap">{% trans "Задай вопрос" %}
                 </button>
             {% endif %}
-            <a href="/ai/" class="flex font-[700] text-[16px] items-center justify-center">{% trans "AI Ассистент" %}</a>
+            <a href="/ai/" class="flex font-[700] text-[16px] items-center justify-center whitespace-nowrap">{% trans "AI Ассистент" %}</a>
         </div>
 
 
@@ -125,7 +125,7 @@
                     </button>
                 </form>
             {% endif %}
-            <form action="{% url 'set_language' %}" method="post" class="flex gap-2 items-center">
+            <form action="{% url 'set_language' %}" method="post" class="flex gap-2 items-center scale-80">
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{{ request.path }}">
 
@@ -192,7 +192,7 @@
                 <input
                         type="text"
                         name="search"
-                        placeholder="% trans 'Поиск через HSE GPT...' %}"
+                        placeholder="{% trans 'Поиск через HSE GPT...' %}"
                         class="w-full p-4  text-black text-base bg-white rounded-2xl placeholder:text-black"/>
             </form>
 

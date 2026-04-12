@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
     <div class="flex flex-col mx-6 max-lg:bg-white mb-6 justify-center">
@@ -11,12 +12,12 @@
                             <img class="w-[36px] h-[36px] min-w-9 min-h-9"
                                  src="{% static 'img/_src/icons/Frame 115.svg' %}">
                         </a>
-                        <p class="font-[500]">Вернуться на главную</p>
+                        <p class="font-[500]">{% trans 'Вернуться на главную' %}</p>
                     </div>
                     <div class="flex flex-col gap-1 w-full">
                         <div class="flex flex-col gap-1 w-full">
-                            <text class="font-[700] text-2xl">Эксперты нашего портала</text>
-                            <text class="font-[500]">Читайте работы наших экспертов</text>
+                            <text class="font-[700] text-2xl">{% trans 'Эксперты нашего портала' %}</text>
+                            <text class="font-[500]">{% trans 'Читайте работы наших экспертов' %}</text>
                         </div>
                         <div class="lg:grid lg:grid-cols-2 gap-3 pt-8 flex overflow-x-auto w-full">
                             {% for author in authors %}
@@ -27,7 +28,7 @@
                                         <div class="flex flex-col gap-0">
                                             <p class="text-[10px] font-[700]">{{ author.name }}</p>
                                             <p class="text-[10px] font-[400]">{{ author.profession }}</p>
-                                            <p class="text-[10px] font-[400]">{{ author.article_count }} -статьи</p>
+                                            <p class="text-[10px] font-[400]">{% blocktrans with n=author.article_count %}{{ n }} — статьи{% endblocktrans %}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -41,10 +42,9 @@
                             <img class="w-[36px] h-[36px] min-w-9 min-h-9"
                                  src="{% static 'img/_src/icons/Frame 115.svg' %}" alt="back">
                         </a>
-                        <p class="font-[500]">Вернуться на главную</p>
+                        <p class="font-[500]">{% trans 'Вернуться на главную' %}</p>
                     </div>
-                    <p class="font-[700] text-[20px] border-b-1 border-b-[#EFEFEF] pb-2 w-full">Форум для всех
-                        зарегистрированных пользователей</p>
+                    <p class="font-[700] text-[20px] border-b-1 border-b-[#EFEFEF] pb-2 w-full">{% trans 'Форум для всех зарегистрированных пользователей' %}</p>
                     <div id='messagesContainer' class="flex flex-col w-full gap-4 max-h-[500px] overflow-y-auto">
                         {% for message in chat_messages %}
                             {% if message.user.id == request.user.id %}
@@ -63,7 +63,7 @@
                     <form method="post" action="{% url 'forum:forum' %}" class="w-full">
                         {% csrf_token %}
                         <label class="bg-[#F5F5F5] flex p-3 w-full rounded-lg justify-between">
-                            <input name="text" placeholder="Напишите ваш комментарии" class="focus:outline-none"/>
+                            <input name="text" placeholder="{% trans 'Напишите ваш комментарии' %}" class="focus:outline-none"/>
                             <button type="submit"><img src="{% static 'img/24/send.svg' %}" alt="send"/></button>
                         </label>
                     </form>
@@ -96,7 +96,7 @@
                 <div class="flex flex-col w-full h-auto shadow-[0px_4px_4px_0px_#0000001A] max-lg:pb-6 pb-6 bg-white mt-3 p-4 max-lg:p-3 rounded-[16px]">
                     <div class="flex flex-col w-full border-b-3 border-[#EFEFEF] pb-3">
                         <div class="flex justify-between">
-                            <h2 class="font-bold text-2xl">Авторские статьи</h2>
+                            <h2 class="font-bold text-2xl">{% trans 'Авторские статьи' %}</h2>
                         </div>
                         <p class="font-[500] max-md:text-sm">{{ selected_author.name }}</p>
                     </div>
@@ -107,7 +107,7 @@
                                     {% include 'includes/news/card.html' %}
                                 </a>
                             {% empty %}
-                                <p>Нет новостей</p>
+                                <p>{% trans 'Нет новостей' %}</p>
                             {% endfor %}
                         </div>
                     </div>
@@ -117,15 +117,15 @@
                 <div class="flex flex-col w-full shadow-[0px_4px_4px_0px_#0000001A] max-lg:pb-6 pb-6 bg-white mt-3 p-4 max-lg:p-3 rounded-2xl">
                     <div class="flex flex-col w-full border-b-3 border-[#EFEFEF] pb-3">
                         <div class="flex justify-between">
-                            <text class="font-bold text-2xl">Документы</text>
+                            <text class="font-bold text-2xl">{% trans 'Документы' %}</text>
                         </div>
-                        <text class="font-medium max-md:text-sm">Акты, журналы, приказы, инструкции</text>
+                        <text class="font-medium max-md:text-sm">{% trans 'Акты, журналы, приказы, инструкции' %}</text>
                     </div>
                     {% for document in documents %}
                         <div class="flex flex-col w-full p-3 border-b-1 border-[#EFEFEF] gap-[10px]">
                             {% if document.is_new %}
                                 <div class="flex justify-center items-center text-[10px] text-white rounded-[16px] bg-[#DF3131] py-1 px-2 w-fit h-4">
-                                    Новое
+                                    {% trans 'Новое' %}
                                 </div>
                             {% endif %}
                             <div class="flex flex-row gap-[10px]">
@@ -136,21 +136,21 @@
                             <div class="text-sm text-[#444444] flex justify-end">{{ document.created_date|date:"d.m.Y" }}</div>
                         </div>
                     {% empty %}
-                        <p class="pt-2">Нет документов</p>
+                        <p class="pt-2">{% trans 'Нет документов' %}</p>
                     {% endfor %}
                 </div>
                 <div class="flex flex-col w-full h-auto shadow-[0px_4px_4px_0px_#0000001A] max-lg:pb-6 pb-6 bg-white mt-3 p-4 max-lg:p-3 rounded-[16px]">
                     <div class="flex flex-col w-full border-b-3 border-[#EFEFEF] pb-3">
                         <div class="flex justify-between">
-                            <text class="font-[700] text-[24px]">Чек-листы</text>
+                            <text class="font-[700] text-[24px]">{% trans 'Чек-листы' %}</text>
                         </div>
-                        <text class="font-medium max-lg:text-sm">Быстрый контроль техники безопасности
+                        <text class="font-medium max-lg:text-sm">{% trans 'Быстрый контроль техники безопасности' %}
                         </text>
                     </div>
                     {% for category_name, checklists in grouped_checklists.items %}
                         <div class="flex flex-col w-full h-auto p-3 border-b-2 border-[#EFEFEF] gap-2">
                             <div class="flex justify-center items-center text-[10px] text-white rounded-[16px] bg-[#DF3131] py-1 px-2 w-fit h-4">
-                                Новое
+                                {% trans 'Новое' %}
                             </div>
                             <div class="flex flex-col">
                                 <div class="flex flex-row justify-between items-center">
@@ -169,12 +169,12 @@
                                         <span class="">{{ item.title }}</span>
                                     </li>
                                 {% empty %}
-                                    <p>Нет чеклистов</p>
+                                    <p>{% trans 'Нет чеклистов' %}</p>
                                 {% endfor %}
                             </ul>
                         </div>
                     {% empty %}
-                        <p class="pt-2">Нет чеклистов</p>
+                        <p class="pt-2">{% trans 'Нет чеклистов' %}</p>
                     {% endfor %}
                 </div>
             </div>

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load new_details_modal %}
 {% load static %}
+{% load i18n %}
 {% load calendar_widget %}
 
 {% block content %}
@@ -13,10 +14,9 @@
                              src="{% static 'img/_src/icons/Frame 115.svg' %}">
                     </a>
                     <div class="flex flex-col">
-                        <text class="font-[700] text-[24px]">Новости</text>
+                        <text class="font-[700] text-[24px]">{% trans 'Новости' %}</text>
                         <text class="font-[500] text-[16px]">
-                            Будь в курсе последних событий в сфере ОТ и ТБ — мы собираем и обновляем
-                            новости из более чем 100 проверенных источников.
+                            {% blocktrans %}Будь в курсе последних событий в сфере ОТ и ТБ — мы собираем и обновляем новости из более чем 100 проверенных источников.{% endblocktrans %}
                         </text>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                                         text-[#AF1E2A]
                                     {% endif %}
                                 ">
-                                Показать все
+                                {% trans 'Показать все' %}
                             </text>
                             <div class="w-6 h-6">
                                 {% if not request.GET.sort and not request.GET.search %}
@@ -59,7 +59,7 @@
                                     type="text"
                                     name="search"
                                     value="{{ request.GET.search }}"
-                                    placeholder="Быстрый поиск информации по ключевым словам..."
+                                    placeholder="{% trans 'Быстрый поиск информации по ключевым словам...' %}"
                                     class="h-[39px] font-[600] text-[12px] text-black bg-[#F5F5F5] rounded-[16px] placeholder:text-[12px] px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-[#1E1E1E] w-full"
                             />
                         </label>
@@ -73,7 +73,7 @@
                            {% else %}
                                border-transparent text-gray-600
                            {% endif %}">
-                        Все
+                        {% trans 'Все' %}
                     </a>
 
                     {% for category in categories %}
@@ -96,7 +96,7 @@
                                 <div class="flex flex-col gap-5 pb-[16px]">
                                     <div class="flex flex-row justify-between items-center">
                                         <div class="flex flex-col">
-                                            <div class="text-[12px] font-[400] text-[#9E9E9E]">Категория</div>
+                                            <div class="text-[12px] font-[400] text-[#9E9E9E]">{% trans 'Категория' %}</div>
                                             <h2 class="font-bold text-2xl">{{ category.title }}</h2>
                                         </div>
                                     </div>
@@ -119,7 +119,7 @@
             <div class="hidden lg:flex flex-col max-w-[400px]">
                 <div class="flex flex-col w-full h-auto shadow-[0px_4px_4px_0px_#0000001A] bg-white mt-3 p-6 rounded-[16px]">
                     <div class="flex flex-row justify-between w-full gap-[64px] h-[80px] border-b-2 border-[#EFEFEF] font-[700] text-[24px]">
-                        Еженедельный дайджест новостей
+                        {% trans 'Еженедельный дайджест новостей' %}
                     </div>
                     <div class="flex flex-col w-full h-auto">
                         {% render_calendar calendar_year calendar_month events_by_day %}

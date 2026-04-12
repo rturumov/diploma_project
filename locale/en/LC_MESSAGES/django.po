@@ -1,0 +1,1120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Safety Hub\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-12 14:46+0000\n"
+"PO-Revision-Date: 2026-04-12 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: news/models.py:193 news/models.py:205
+msgid "Вводный"
+msgstr "Introductory"
+
+#: news/models.py:194 news/models.py:206
+msgid "Первичный"
+msgstr "Primary"
+
+#: news/models.py:195
+msgid "Повторный"
+msgstr "Refresher"
+
+#: news/models.py:196
+msgid "Целевой"
+msgstr "Targeted"
+
+#: news/models.py:197
+msgid "Внеплановый"
+msgstr "Unscheduled"
+
+#: news/models.py:200
+msgid "Текст"
+msgstr "Text"
+
+#: news/models.py:201
+msgid "Видео"
+msgstr "Video"
+
+#: news/models.py:202
+msgid "PDF"
+msgstr "PDF"
+
+#: news/models.py:207
+msgid "Инструкции по БиОТ"
+msgstr "OSH instructions"
+
+#: news/models.py:257
+msgid "Safety management"
+msgstr "Safety management"
+
+#: news/models.py:258
+msgid "Инциденты и расследования"
+msgstr "Incidents and investigations"
+
+#: news/models.py:259
+msgid "Другие документы"
+msgstr "Other documents"
+
+#: news/models.py:365
+msgid "Обходы по Безопасности"
+msgstr "Safety walkarounds"
+
+#: news/models.py:366
+msgid "Проверочные листы оборудования"
+msgstr "Equipment checklists"
+
+#: news/models.py:367
+msgid "Шаблоны расследований"
+msgstr "Investigation templates"
+
+#: news/models.py:368
+msgid "Отчетность"
+msgstr "Reporting"
+
+#: news/models.py:424
+msgid "Основные законы и кодексы"
+msgstr "Fundamental laws and codes"
+
+#: news/models.py:425
+msgid "Нормативно-правовые акты (НПА)"
+msgstr "Regulatory legal acts (NPA)"
+
+#: news/models.py:426
+msgid "Правила и требования по охране труда"
+msgstr "Occupational safety rules and requirements"
+
+#: news/models.py:427
+msgid "Технические регламенты и стандарты"
+msgstr "Technical regulations and standards"
+
+#: news/models.py:428
+msgid "Изменения и обновления"
+msgstr "Changes and updates"
+
+#: news/models.py:494
+msgid "Строительство"
+msgstr "Construction"
+
+#: news/models.py:495
+msgid "Горная промышленность"
+msgstr "Mining industry"
+
+#: news/models.py:496
+msgid "Нефтегаз"
+msgstr "Oil and gas"
+
+#: news/models.py:521
+msgid "Закон"
+msgstr "Law"
+
+#: news/models.py:522
+msgid "Кодекс"
+msgstr "Code"
+
+#: news/models.py:523
+msgid "НПА"
+msgstr "NPA"
+
+#: news/models.py:524
+msgid "ГОСТ"
+msgstr "GOST"
+
+#: news/models.py:527
+msgid "Актуален"
+msgstr "In force"
+
+#: news/models.py:528
+msgid "Устарел"
+msgstr "Obsolete"
+
+#: news/models.py:553
+msgid "Организация охраны труда"
+msgstr "Occupational safety organization"
+
+#: news/models.py:554
+msgid "СИЗ и рабочая форма"
+msgstr "PPE and workwear"
+
+#: news/models.py:555
+msgid "Документы и оформление"
+msgstr "Documents and paperwork"
+
+#: news/models.py:556
+msgid "Проверки и ответственность"
+msgstr "Inspections and liability"
+
+#: news/models.py:557
+msgid "Несчастные случаи и расследования"
+msgstr "Accidents and investigations"
+
+#: templates/404.html:15 templates/base.html:83 templates/base.html:199
+#: templates/pages/advertising.html:11 templates/pages/author.html:18
+#: templates/pages/category.html:18 templates/pages/map.html:11
+#: templates/pages/popular_news.html:18 templates/pages/rules.html:11
+#: templates/pages/tags.html:19
+msgid "Главная"
+msgstr "Home"
+
+#: templates/404.html:16
+msgid "Ошибка404"
+msgstr "Error 404"
+
+#: templates/ai_chat/chat.html:6
+msgid "AI Ассистент по охране труда"
+msgstr "AI Occupational Safety Assistant"
+
+#: templates/ai_chat/chat.html:11 templates/base.html:91
+#: templates/base.html:206
+msgid "AI Ассистент"
+msgstr "AI Assistant"
+
+#: templates/ai_chat/chat.html:12
+msgid "Задайте вопрос по охране труда и технике безопасности"
+msgstr "Ask a question about occupational health and safety"
+
+#: templates/ai_chat/chat.html:16
+msgid "Начните диалог — задайте ваш первый вопрос"
+msgstr "Start a conversation by asking your first question."
+
+#: templates/ai_chat/chat.html:24
+msgid "Например: есть ли закон о защите при травме на производстве?"
+msgstr "For example: is there a law on protection in case of injury at work?"
+
+#: templates/ai_chat/chat.html:31
+msgid "Отправить"
+msgstr "Send"
+
+#: templates/ai_chat/chat.html:38
+msgid "Думаю..."
+msgstr "Thinking..."
+
+#: templates/ai_chat/chat.html:39
+msgid "Ошибка 404"
+msgstr "Error 404"
+
+#: templates/ai_chat/chat.html:40
+msgid "Ошибка соединения"
+msgstr "Connection error"
+
+#: templates/ai_chat/chat.html:41
+msgid "Источники"
+msgstr "Sources"
+
+#: templates/base.html:36 templates/includes/main/index_blocks.html:6
+#: templates/pages/index.html:6
+msgid "Портал по охране труда и технике безопасности в Казахстане."
+msgstr "Portal on occupational health and safety in Kazakhstan."
+
+#: templates/base.html:76
+msgid "Safety Hub - безопасность как стандарт работы"
+msgstr "Safety Hub - Safety as a Standard of Operation"
+
+#: templates/base.html:85 templates/base.html:200 templates/pages/about.html:15
+msgid "О нас"
+msgstr "About Us"
+
+#: templates/base.html:88 templates/base.html:203
+msgid "Задай вопрос"
+msgstr "Ask a question"
+
+#: templates/base.html:100 templates/base.html:195
+msgid "Поиск через HSE GPT..."
+msgstr "Search via HSE GPT..."
+
+#: templates/base.html:114 templates/includes/auth_modal.html:13
+#: templates/includes/auth_modal.html:40 templates/includes/auth_modal.html:131
+#: templates/includes/auth_modal.html:169
+#: templates/widgets/sms_confirm_modal.html:52
+msgid "Войти"
+msgstr "Login"
+
+#: templates/base.html:122 templates/base.html:162
+msgid "Выйти"
+msgstr "Log out"
+
+#: templates/base.html:168
+msgid "user"
+msgstr "User"
+
+#: templates/base.html:172
+msgid "menu"
+msgstr "Menu"
+
+#: templates/base.html:189
+msgid "Safety Hub — безопасность как стандарт"
+msgstr "Safety Hub - Safety as a Standard of Operation"
+
+#: templates/base.html:221
+msgid "Войти в систему"
+msgstr "Log in"
+
+#: templates/category_news.html:6
+msgid "Общество"
+msgstr "Society"
+
+#: templates/category_news.html:21 templates/popular_news.html:18
+msgid "все новости"
+msgstr "All news"
+
+#: templates/includes/ask_question.html:17
+msgid "Задайте свой вопрос..."
+msgstr "Enter your question..."
+
+#: templates/includes/ask_question.html:23
+msgid "Раннее вами заданные вами вопросы"
+msgstr "Your previously asked questions"
+
+#: templates/includes/ask_question.html:28
+#: templates/includes/ask_question.html:54
+#, python-format
+msgid "Ответов – %(n)s"
+msgstr "Answers – %(n)s"
+
+#: templates/includes/ask_question.html:36
+msgid "Вы еще не задали ни один вопрос"
+msgstr "You have not asked any questions yet"
+
+#: templates/includes/auth_modal.html:14 templates/includes/auth_modal.html:152
+msgid "Введите логин и пароль, чтобы войти на портал"
+msgstr "Enter your login and password to sign in to the portal"
+
+#: templates/includes/auth_modal.html:22
+msgid "Введите логин"
+msgstr "Enter login"
+
+#: templates/includes/auth_modal.html:30 templates/includes/auth_modal.html:113
+msgid "Введите пароль"
+msgstr "Enter password"
+
+#: templates/includes/auth_modal.html:48 templates/includes/auth_modal.html:71
+#: templates/widgets/sms_confirm_modal.html:18
+msgid "Регистрация"
+msgstr "Sign up"
+
+#: templates/includes/auth_modal.html:55
+msgid "Забыли пароль?"
+msgstr "Forgot your password?"
+
+#: templates/includes/auth_modal.html:57 templates/includes/auth_modal.html:136
+#: templates/pages/forum.html:15 templates/pages/forum.html:45
+#: templates/pages/search_results.html:9
+#: templates/widgets/sms_confirm_modal.html:57
+msgid "Вернуться на главную"
+msgstr "Back to home"
+
+#: templates/includes/auth_modal.html:72
+#: templates/widgets/sms_confirm_modal.html:19
+msgid "Введите контактные данные, чтобы получить бесплатный доступ"
+msgstr "Enter your contact details to get free access"
+
+#: templates/includes/auth_modal.html:81
+msgid "Турумов Алдияр Каерканович"
+msgstr "e.g. John Smith"
+
+#: templates/includes/auth_modal.html:89
+msgid "Ваша должность"
+msgstr "Your job title"
+
+#: templates/includes/auth_modal.html:97
+msgid "Телефон"
+msgstr "Phone"
+
+#: templates/includes/auth_modal.html:121
+msgid "Повторите пароль"
+msgstr "Confirm password"
+
+#: templates/includes/auth_modal.html:151
+msgid "Введите вашу почту, мы вышлем вам ссылку для восстановления пароля"
+msgstr "Enter your email address and we will send you a password reset link"
+
+#: templates/includes/auth_modal.html:160
+msgid "Введите ваш Email для восстановления пароля"
+msgstr "Enter your email for password recovery"
+
+#: templates/includes/auth_modal.html:176
+msgid "Отмена"
+msgstr "Cancel"
+
+#: templates/includes/event_calendar/sidebar.html:7
+msgid "Самые обсуждаемые и интересные события не упустите мероприятия"
+msgstr "The most discussed and interesting events — don’t miss them"
+
+#: templates/includes/event_calendar/sidebar.html:12
+msgid "Применить"
+msgstr "Apply"
+
+#: templates/includes/event_calendar/sidebar.html:16
+msgid "Напоминания"
+msgstr "Reminders"
+
+#: templates/includes/event_calendar/sidebar.html:18
+msgid "Telegram-подписка на события"
+msgstr "Telegram subscription for events"
+
+#: templates/includes/main/calendar.html:8
+#: templates/pages/event_calendar.html:28
+msgid "Календарь событий"
+msgstr "Event calendar"
+
+#: templates/includes/main/calendar.html:14
+msgid ""
+"Следи за важными датами в сфере охраны <br> труда: форумы, проверки, "
+"дедлайны <br> и ключевые мероприятия"
+msgstr ""
+"Stay on top of important dates in occupational safety: forums, inspections, "
+"deadlines <br> and key events"
+
+#: templates/includes/main/calendar_events.html:22
+msgid "Событий нет"
+msgstr "No events"
+
+#: templates/includes/main/index_analytics.html:6
+msgid "Аналитика"
+msgstr "Analytics"
+
+#: templates/includes/main/index_analytics.html:12
+msgid "Обзоры, исследования и инфографика на основе реальных данных"
+msgstr "Reviews, research, and infographics based on real data"
+
+#: templates/includes/main/index_autoKeys.html:6
+#: templates/pages/automation_cases.html:10
+msgid "Кейсы автоматизации"
+msgstr "Automation case studies"
+
+#: templates/includes/main/index_autoKeys.html:12
+#: templates/pages/automation_cases.html:11
+msgid "Реальные примеры, как цифровые решения упрощают работу в ТБ"
+msgstr "Real examples of how digital solutions simplify health and safety work"
+
+#: templates/includes/main/index_autoKeys.html:19
+#: templates/includes/main/index_briefing.html:22
+#: templates/includes/main/index_checklists.html:17
+#: templates/includes/main/index_documents.html:17
+#: templates/includes/main/index_law.html:18
+#: templates/includes/main/index_risks.html:20
+#: templates/pages/automation_cases.html:64
+#: templates/pages/automation_cases.html:90 templates/pages/checklists.html:82
+#: templates/pages/checklists.html:138 templates/pages/documents.html:82
+#: templates/pages/documents.html:141 templates/pages/forum.html:128
+#: templates/pages/forum.html:153 templates/pages/instructions.html:99
+#: templates/pages/instructions.html:145 templates/pages/instructions.html:181
+#: templates/pages/instructions.html:216 templates/pages/law.html:93
+#: templates/pages/law.html:142 templates/pages/risk_management.html:64
+#: templates/pages/risk_management.html:97
+#: templates/pages/search_results.html:68 templates/pages/study.html:133
+msgid "Новое"
+msgstr "New"
+
+#: templates/includes/main/index_blocks.html:9
+msgid ""
+"Инструкции, законы, новости и готовые решения - всё, что нужно специалисту "
+"ТБ."
+msgstr ""
+"Instructions, laws, news, and ready-made solutions—everything a safety "
+"specialist needs."
+
+#: templates/includes/main/index_blocks.html:12
+msgid ""
+"Только проверенная информация, умный поиск и ежедневные обновления - чтобы "
+"работать уверенно и безопасно."
+msgstr ""
+"Only verified information, smart search, and daily updates - to work "
+"confidently and safely."
+
+#: templates/includes/main/index_blocks.html:18
+msgid "Стать частью сообщества"
+msgstr "Become part of the community"
+
+#: templates/includes/main/index_blocks.html:28
+#: templates/includes/main/index_news.html:6 templates/pages/all_news.html:17
+#: templates/pages/search_results.html:14
+msgid "Новости"
+msgstr "News"
+
+#: templates/includes/main/index_blocks.html:36
+#: templates/includes/main/index_law.html:6 templates/pages/law.html:10
+msgid "Законодательство"
+msgstr "Legislation"
+
+#: templates/includes/main/index_blocks.html:44
+#: templates/includes/main/index_checklists.html:6
+#: templates/pages/forum.html:145 templates/pages/search_results.html:81
+msgid "Чек-листы"
+msgstr "Checklists"
+
+#: templates/includes/main/index_blocks.html:52
+msgid "Вопрос-ответ"
+msgstr "Q&A"
+
+#: templates/includes/main/index_blocks.html:60 templates/pages/study.html:11
+msgid "Обучение"
+msgstr "Training"
+
+#: templates/includes/main/index_blocks.html:68
+#: templates/pages/webinars.html:15
+msgid "Вебинары"
+msgstr "Webinars"
+
+#: templates/includes/main/index_blocks.html:76
+msgid "Форум"
+msgstr "Forum"
+
+#: templates/includes/main/index_briefing.html:6
+#: templates/pages/instructions.html:10 templates/pages/search_results.html:24
+msgid "Инструктажи"
+msgstr "Safety briefings"
+
+#: templates/includes/main/index_briefing.html:11
+msgid ""
+"Скачивайте, адаптируйте и проводите <br> инструктажи быстро и без лишней "
+"<br> бюрократии"
+msgstr ""
+"Download, adapt, and run <br> safety briefings quickly and with less <br> "
+"red tape"
+
+#: templates/includes/main/index_checklists.html:12
+#: templates/includes/main/index_questions.html:11
+#: templates/pages/forum.html:147
+msgid "Быстрый контроль техники безопасности"
+msgstr "Quick safety compliance checks"
+
+#: templates/includes/main/index_documents.html:6
+#: templates/pages/documents.html:10 templates/pages/forum.html:120
+#: templates/pages/search_results.html:64
+msgid "Документы"
+msgstr "Documents"
+
+#: templates/includes/main/index_documents.html:12
+#: templates/pages/documents.html:11 templates/pages/forum.html:122
+msgid "Акты, журналы, приказы, инструкции"
+msgstr "Acts, journals, orders, instructions"
+
+#: templates/includes/main/index_law.html:12
+msgid "Актуальные законы, правила <br> и нормативы по ТБ в РК"
+msgstr ""
+"Current laws, rules <br> and health and safety regulations in Kazakhstan"
+
+#: templates/includes/main/index_law.html:29
+#, python-format
+msgid "Номер приказа: №%(num)s"
+msgstr "Order number: No. %(num)s"
+
+#: templates/includes/main/index_law.html:36
+#: templates/includes/news/card.html:44
+msgid "Без категории"
+msgstr "Uncategorized"
+
+#: templates/includes/main/index_law.html:42
+msgid "Экспертный комментарий"
+msgstr "Expert commentary"
+
+#: templates/includes/main/index_law.html:53 templates/pages/article.html:38
+#: templates/pages/checklists.html:121 templates/pages/documents.html:125
+#: templates/pages/law.html:199 templates/pages/search_results.html:118
+msgid "Ничего нет"
+msgstr "Nothing here yet"
+
+#: templates/includes/main/index_news.html:12
+msgid ""
+"Будь в курсе последних событий в сфере ОТ и ТБ — мы собираем и обновляем "
+"<br> новости из более чем 100 проверенных источников."
+msgstr ""
+"Stay up to date on occupational health and safety — we gather and update "
+"<br> news from more than 100 trusted sources."
+
+#: templates/includes/main/index_qauipmedia.html:13
+msgid ""
+"Наш авторский видеопроект о <br> безопасности с лучшими экспертами <br> "
+"страны."
+msgstr ""
+"Our original video project on <br> safety with the country’s leading <br> "
+"experts."
+
+#: templates/includes/main/index_questions.html:6
+#: templates/pages/search_results.html:125
+msgid "Вопросы и ответы"
+msgstr "Questions and answers"
+
+#: templates/includes/main/index_risks.html:6
+#: templates/pages/risk_management.html:10
+msgid "Управление рисками"
+msgstr "Risk management"
+
+#: templates/includes/main/index_risks.html:12
+msgid ""
+"Узнай как грамотно подходить к анализу <br> рисков в своей зоне "
+"ответственности."
+msgstr ""
+"Learn how to approach risk analysis properly <br> in your area of "
+"responsibility."
+
+#: templates/includes/news/calendar_news.html:13
+msgid "Новостей нет"
+msgstr "No news"
+
+#: templates/includes/news/card.html:6
+msgid "Сегодня"
+msgstr "Today"
+
+#: templates/includes/webinars/card.html:14
+#: templates/pages/event_calendar.html:142
+msgid "Бесплатно"
+msgstr "Free"
+
+#: templates/includes/webinars/card.html:16
+#: templates/pages/event_calendar.html:144
+msgid "Сертификат"
+msgstr "Certificate"
+
+#: templates/includes/webinars/card.html:18
+#: templates/pages/event_calendar.html:146
+msgid "Только в прямом эфире"
+msgstr "Live only"
+
+#: templates/pages/about.html:11
+msgid "Назад"
+msgstr "Back"
+
+#: templates/pages/about.html:17
+msgid ""
+"Мы создаем современную площадку для специалистов HSE: объединяем "
+"практический опыт, экспертные материалы и инструменты, которые помогают "
+"повышать культуру безопасности ежедневно."
+msgstr ""
+"We are creating a modern platform for HSE professionals: combining practical "
+"experience, expert materials, and tools that help improve safety culture on "
+"a daily basis."
+
+#: templates/pages/about.html:22
+msgid "доступ к базе материалов"
+msgstr "access to a materials database"
+
+#: templates/pages/about.html:26
+msgid "фокус на реальной практике"
+msgstr "focus on real-world practice"
+
+#: templates/pages/about.html:30
+msgid "ориентация на полезный контент"
+msgstr "focus on useful content"
+
+#: templates/pages/about.html:39
+msgid "Что мы делаем"
+msgstr "What we do"
+
+#: templates/pages/about.html:40
+msgid "Экосистема знаний HSE"
+msgstr "HSE knowledge ecosystem"
+
+#: templates/pages/about.html:42
+msgid ""
+"Собираем новости, инструкции, документы, чек-листы и кейсы автоматизации в "
+"единую и удобную платформу."
+msgstr ""
+"We collect news, instructions, documents, checklists, and automation cases "
+"into a single and convenient platform."
+
+#: templates/pages/about.html:46
+msgid "Для кого"
+msgstr "Who it's for"
+
+#: templates/pages/about.html:47
+msgid "Профессиональное сообщество"
+msgstr "Professional community"
+
+#: templates/pages/about.html:49
+msgid ""
+"Для инженеров, руководителей, преподавателей и всех, кто отвечает за "
+"безопасность людей и процессов."
+msgstr ""
+"For engineers, managers, educators, and anyone responsible for the safety of "
+"people and processes."
+
+#: templates/pages/about.html:55
+msgid "Наши ценности"
+msgstr "Our values"
+
+#: templates/pages/about.html:58
+msgid "Практичность"
+msgstr "Practicality"
+
+#: templates/pages/about.html:59
+msgid "Только материалы, которые можно использовать в работе сразу."
+msgstr "Only materials that can be used immediately in work."
+
+#: templates/pages/about.html:62
+msgid "Открытость"
+msgstr "Openness"
+
+#: templates/pages/about.html:63
+msgid "Живое общение и обмен опытом между специалистами из разных отраслей."
+msgstr ""
+"Live communication and exchange of experience between specialists from "
+"different industries."
+
+#: templates/pages/about.html:66
+msgid "Качество"
+msgstr "Quality"
+
+#: templates/pages/about.html:67
+msgid "Проверенные источники, актуальные данные и понятная структура."
+msgstr "Verified sources, up-to-date data, and a clear structure."
+
+#: templates/pages/about.html:70
+msgid "Развитие"
+msgstr "Development"
+
+#: templates/pages/about.html:71
+msgid "Постоянно обновляем платформу и добавляем новые форматы."
+msgstr "We continuously update the platform and add new formats."
+
+#: templates/pages/about.html:77
+msgid "Наша команда"
+msgstr "Our team"
+
+#: templates/pages/about.html:81
+msgid "Участник команды 1"
+msgstr "Team member 1"
+
+#: templates/pages/about.html:83
+msgid "Садыков Алдияр"
+msgstr "Aldiyar Sadykov"
+
+#: templates/pages/about.html:84 templates/pages/about.html:92
+msgid "Фронтенд разработчик"
+msgstr "Front-end developer"
+
+#: templates/pages/about.html:89
+msgid "Участник команды 2"
+msgstr "Team member 2"
+
+#: templates/pages/about.html:91
+msgid "Шакиркожа Ильяс"
+msgstr "Ilyas Shakirkhozha"
+
+#: templates/pages/about.html:97
+msgid "Участник команды 3"
+msgstr "Team member 3"
+
+#: templates/pages/about.html:99
+msgid "Турумов Расул"
+msgstr "Rassul Turumov"
+
+#: templates/pages/about.html:100 templates/pages/about.html:108
+msgid "Бэкенд разработчик"
+msgstr "Back-end developer"
+
+#: templates/pages/about.html:105
+msgid "Участник команды 4"
+msgstr "Team member 4"
+
+#: templates/pages/about.html:107
+msgid "Танибергенов Арнур"
+msgstr "Arnur Tanibergenov"
+
+#: templates/pages/about.html:116
+msgid "Контакты"
+msgstr "Contacts"
+
+#: templates/pages/about.html:119
+msgid "Город: Алматы, Казахстан"
+msgstr "City: Almaty, Kazakhstan"
+
+#: templates/pages/about.html:124
+msgid "Присоединяйтесь"
+msgstr "Join us"
+
+#: templates/pages/about.html:126
+msgid "Станьте частью сообщества, которое меняет подход к безопасности."
+msgstr "Become part of a community that is changing the approach to safety."
+
+#: templates/pages/about.html:130
+msgid "Вступить в Telegram"
+msgstr "Join Telegram"
+
+#: templates/pages/advertising.html:12 templates/pages/advertising.html:14
+msgid "Реклама"
+msgstr "Advertising"
+
+#: templates/pages/advertising.html:16
+msgid ""
+"По вопросам размещения рекламных и PR-материалов, условиям сотрудничества с "
+"01.imaq.kz обращайтесь по номеру телефона: +77003969700. Или пишите на "
+"электронную почту: press@imaq.kz"
+msgstr ""
+"For advertising and PR placement and partnership terms with 01.imaq.kz, call "
+"+77003969700 or email press@imaq.kz."
+
+#: templates/pages/all_news.html:19
+msgid ""
+"Будь в курсе последних событий в сфере ОТ и ТБ — мы собираем и обновляем "
+"новости из более чем 100 проверенных источников."
+msgstr ""
+"Stay up to date on occupational health and safety — we gather and update "
+"news from more than 100 trusted sources."
+
+#: templates/pages/all_news.html:43 templates/pages/automation_cases.html:34
+#: templates/pages/checklists.html:34 templates/pages/documents.html:34
+#: templates/pages/faqs.html:34 templates/pages/instructions.html:36
+#: templates/pages/law.html:34 templates/pages/risk_management.html:34
+#: templates/pages/study.html:35 templates/pages/webinars.html:40
+msgid "Показать все"
+msgstr "Show all"
+
+#: templates/pages/all_news.html:62 templates/pages/automation_cases.html:53
+#: templates/pages/documents.html:53 templates/pages/faqs.html:53
+#: templates/pages/instructions.html:59 templates/pages/law.html:53
+#: templates/pages/risk_management.html:53 templates/pages/study.html:54
+#: templates/pages/webinars.html:59
+msgid "Быстрый поиск информации по ключевым словам..."
+msgstr "Quick keyword search..."
+
+#: templates/pages/all_news.html:76 templates/pages/event_calendar.html:114
+#: templates/pages/faqs.html:67 templates/pages/instructions.html:73
+#: templates/pages/law.html:67 templates/pages/study.html:68
+#: templates/pages/webinars.html:67
+msgid "Все"
+msgstr "All"
+
+#: templates/pages/all_news.html:99
+msgid "Категория"
+msgstr "Category"
+
+#: templates/pages/all_news.html:122 templates/pages/article.html:63
+msgid "Еженедельный дайджест новостей"
+msgstr "Weekly news digest"
+
+#: templates/pages/article.html:27 templates/pages/law.html:188
+msgid "Экспертные комментарии"
+msgstr "Expert comments"
+
+#: templates/pages/article.html:48 templates/pages/law.html:209
+msgid "Ваш комментарий..."
+msgstr "Your comment..."
+
+#: templates/pages/author.html:3
+msgid "Самая актуальная информация Астаны 👉 01.imaq.kz"
+msgstr "Latest news from Astana 👉 01.imaq.kz"
+
+#: templates/pages/author.html:6
+msgid ""
+"Новости Казахстана ✅ Картина дня, происшествия, новости экономики, события "
+"в искусстве и культуре✍ Все то, что важно для жителей Казахстана⚡imaq.kz ⚡"
+msgstr ""
+"Kazakhstan news ✅ The day in review, incidents, economy, arts and culture — "
+"everything that matters for people in Kazakhstan ⚡ imaq.kz ⚡"
+
+#: templates/pages/author.html:21
+msgid "Автор"
+msgstr "Author"
+
+#: templates/pages/automation_cases.html:84
+#: templates/pages/risk_management.html:91
+msgid "Последние обновления в кейсах автоматизации"
+msgstr "Latest updates in automation cases"
+
+#: templates/pages/category.html:4 templates/pages/popular_news.html:4
+#, python-format
+msgid "Самая актуальная информация Астаны 👉 %(cat)s 👉 01.imaq.kz"
+msgstr "Latest news from Astana 👉 %(cat)s 👉 01.imaq.kz"
+
+#: templates/pages/checklists.html:10
+msgid "Чек листы"
+msgstr "Checklists"
+
+#: templates/pages/checklists.html:11
+msgid "Важные чек листы для каждого"
+msgstr "Essential checklists for everyone"
+
+#: templates/pages/checklists.html:53
+msgid ""
+"Не видишь нужный чек лист? Попробуй найти через ключевые слова поиска..."
+msgstr "Can’t find the checklist you need? Try searching by keywords..."
+
+#: templates/pages/checklists.html:132 templates/pages/documents.html:135
+msgid "Последние обновления"
+msgstr "Latest updates"
+
+#: templates/pages/event_calendar.html:10
+#, python-format
+msgid "Мероприятия по ТБ на %(year)s"
+msgstr "Health and safety events in %(year)s"
+
+#: templates/pages/event_calendar.html:29
+msgid "Смотрите и планируйте все мероприятия вместе с нами"
+msgstr "View and plan all events with us"
+
+#: templates/pages/event_calendar.html:43
+msgid "Город"
+msgstr "City"
+
+#: templates/pages/event_calendar.html:61
+msgid "Месяц"
+msgstr "Month"
+
+#: templates/pages/event_calendar.html:93
+msgid "Сбросить фильтры"
+msgstr "Reset filters"
+
+#: templates/pages/event_calendar.html:104
+msgid "Быстрый поиск..."
+msgstr "Quick search..."
+
+#: templates/pages/event_calendar.html:169
+msgid "часа"
+msgstr "h"
+
+#: templates/pages/event_calendar.html:185
+msgid "Ничего не найдено"
+msgstr "Nothing found"
+
+#: templates/pages/faqs.html:10
+msgid "Ответы-вопросы"
+msgstr "Q&A"
+
+#: templates/pages/faqs.html:11
+msgid "Популярные вопросы и ответы на часто задаваемые вопросы"
+msgstr "Popular questions and answers to frequently asked questions"
+
+#: templates/pages/faqs.html:139
+msgid "Популярные вопросы и ответы на них"
+msgstr "Popular questions and answers"
+
+#: templates/pages/faqs.html:143
+msgid "Задать свой вопрос..."
+msgstr "Ask your question..."
+
+#: templates/pages/forum.html:19
+msgid "Эксперты нашего портала"
+msgstr "Our portal’s experts"
+
+#: templates/pages/forum.html:20
+msgid "Читайте работы наших экспертов"
+msgstr "Read our experts’ work"
+
+#: templates/pages/forum.html:31
+#, python-format
+msgid "%(n)s — статьи"
+msgstr "%(n)s — articles"
+
+#: templates/pages/forum.html:47
+msgid "Форум для всех зарегистрированных пользователей"
+msgstr "Forum for all registered users"
+
+#: templates/pages/forum.html:66
+msgid "Напишите ваш комментарии"
+msgstr "Write your comment"
+
+#: templates/pages/forum.html:99
+msgid "Авторские статьи"
+msgstr "Expert articles"
+
+#: templates/pages/forum.html:110
+msgid "Нет новостей"
+msgstr "No news yet"
+
+#: templates/pages/forum.html:139
+msgid "Нет документов"
+msgstr "No documents"
+
+#: templates/pages/forum.html:172 templates/pages/forum.html:177
+msgid "Нет чеклистов"
+msgstr "No checklists"
+
+#: templates/pages/index.html:8
+msgid ""
+"Инструкции, законы, новости и готовые решения - всё, что нужно специалисту "
+"ТБ. Только проверенная информация, умный поиск и ежедневные обновления - "
+"чтобы работать уверенно и безопасно."
+msgstr ""
+"Instructions, laws, news, and ready-made solutions—everything a safety "
+"specialist needs. Only verified information, smart search, and daily updates "
+"— so you can work with confidence and safety."
+
+#: templates/pages/instructions.html:12
+msgid ""
+"Скачивайте, адаптируйте и проводите инструктажи быстро и без лишней "
+"бюрократии"
+msgstr ""
+"Download, adapt, and run safety briefings quickly and with less bureaucracy."
+
+#: templates/pages/instructions.html:139
+msgid "Готовые инструкции и видеоинструкции, тексты"
+msgstr "Ready-made instructions, video briefings, and texts"
+
+#: templates/pages/instructions.html:175
+msgid "Журнал регистрации инструктажей"
+msgstr "Safety briefing log"
+
+#: templates/pages/instructions.html:210
+msgid "Бланки проверки знаний после инструктажа"
+msgstr "Knowledge test forms after briefings"
+
+#: templates/pages/law.html:11
+msgid "Актуальные законы, правила и нормативы по ТБ в РК"
+msgstr "Current laws, rules, and health and safety regulations in Kazakhstan"
+
+#: templates/pages/law.html:136
+msgid "Последние изменения в законодательстве"
+msgstr "Latest legislative changes"
+
+#: templates/pages/law.html:183
+msgid "Изменение в правилах проведения обучения по охране труда"
+msgstr "Changes to occupational safety training rules"
+
+#: templates/pages/law.html:184
+msgid ""
+"Внесены изменения в порядок проведения обучения и проверки знаний по "
+"безопасности, и охране труда"
+msgstr ""
+"Changes have been made to the procedure for training and knowledge testing "
+"on safety and occupational health."
+
+#: templates/pages/map.html:12 templates/pages/map.html:14
+msgid "Карта сайта"
+msgstr "Site map"
+
+#: templates/pages/map.html:16
+msgid "Категории"
+msgstr "Categories"
+
+#: templates/pages/popular_news.html:15 templates/pages/popular_news.html:21
+msgid "Популярные новости"
+msgstr "Popular news"
+
+#: templates/pages/qauipmedia.html:13
+msgid "Наш авторский видеопроект о безопасности с лучшими экспертами страны."
+msgstr ""
+"Our original video series on safety with the country’s leading experts."
+
+#: templates/pages/risk_management.html:11
+msgid ""
+"Узнай как грамотно подходить к анализу рисков в своей зоне ответственности."
+msgstr ""
+"Learn how to approach risk analysis properly in your area of responsibility."
+
+#: templates/pages/rules.html:13 templates/pages/rules.html:16
+msgid "Правила использования материалов"
+msgstr "Terms of use for materials"
+
+#: templates/pages/rules.html:20
+msgid ""
+"Редакции 01.imaq.kz принадлежат все права в отношении материалов, "
+"опубликованных на сайте 01.imaq.kz, за исключением заимствованных в других "
+"источниках материалов, которые были перепечатаны на сайте с указанием их "
+"правообладателя."
+msgstr ""
+"The editorial office of 01.imaq.kz holds all rights to materials published "
+"on 01.imaq.kz, except for materials taken from other sources that were "
+"republished on the site with attribution to their rights holders."
+
+#: templates/pages/rules.html:25
+msgid ""
+"Редакция 01.imaq.kz разрешает перепечатку опубликованных на сайте "
+"материалов, права на которые принадлежат редакции. Данные материалы могут "
+"быть воспроизведены в любых СМИ, на серверах сети Интернет при условии "
+"обязательного указания активной гиперссылки на 01.imaq.kz."
+msgstr ""
+"The editorial office of 01.imaq.kz permits republication of materials "
+"published on the site that are owned by the editorial office. Such materials "
+"may be reproduced in any media and on internet servers provided an active "
+"hyperlink to 01.imaq.kz is included."
+
+#: templates/pages/rules.html:30
+msgid ""
+"Использование материалов сайта 01.imaq.kz посетителем означает, что он "
+"принимает и обязуется соблюдать настоящие правила. Осуществляя переход по "
+"ссылкам на сторонние сайты, посетитель берет на себя всю ответственность за "
+"последствия. Посетители, неправомерно использовавшие материалы сайта "
+"01.imaq.kz, несут ответственность самостоятельно в соответствии с "
+"законодательством РК."
+msgstr ""
+"Use of materials on 01.imaq.kz by a visitor means they accept and agree to "
+"follow these rules. By following links to third-party sites, the visitor "
+"assumes full responsibility for the consequences. Visitors who unlawfully "
+"use materials from 01.imaq.kz are solely responsible under the laws of the "
+"Republic of Kazakhstan."
+
+#: templates/pages/rules.html:35
+msgid ""
+"Редакция сайта 01.imaq.kz оставляет за собой право на защиту своих законных "
+"интересов и прав любыми законными способами, в том числе в судебном порядке."
+msgstr ""
+"The editorial office of 01.imaq.kz reserves the right to protect its lawful "
+"interests and rights by any lawful means, including in court."
+
+#: templates/pages/rules.html:40
+msgid ""
+"Правила вступают в силу с момента их опубликования на интернет-ресурсе "
+"01.imaq.kz с указанием актуальной даты."
+msgstr ""
+"These rules take effect from the moment they are published on 01.imaq.kz "
+"with the current date indicated."
+
+#: templates/pages/rules.html:44
+msgid "01.04.2023 г."
+msgstr "April 1, 2023"
+
+#: templates/pages/study.html:12
+msgid "Расскажем, покажем, объясним."
+msgstr "We’ll tell, show, and explain."
+
+#: templates/pages/study.html:126 templates/pages/webinars.html:151
+msgid "Последние обновления в разделе обучения"
+msgstr "Latest updates in the training section"
+
+#: templates/pages/tags.html:3
+#, python-format
+msgid "Новости 👉 %(t)s 👉 01.imaq.kz"
+msgstr "News 👉 %(t)s 👉 01.imaq.kz"
+
+#: templates/pages/tags.html:6
+#, python-format
+msgid ""
+"Подборка самой свежей и актуальной информации на сегодня по теме %(t)s ⚡Мы "
+"публикуем по-настоящему интересные новости на сайте 01.imaq.kz⚡ Главные "
+"новости и события по теме %(t)s"
+msgstr ""
+"A fresh, up-to-date digest for today on %(t)s ⚡ Truly interesting news on "
+"01.imaq.kz ⚡ Top news and stories on %(t)s"
+
+#: templates/pages/webinars.html:16
+msgid "Много можно узнать у нас тут, лайфхаки, советы, и интересные истории"
+msgstr "Learn more here — life hacks, tips, and interesting stories"
+
+#: templates/pages/webinars.html:69 templates/pages/webinars.html:80
+msgid "Сейчас идет"
+msgstr "Live now"
+
+#: templates/pages/webinars.html:71
+msgid "Ближайшие вебинары"
+msgstr "Upcoming webinars"
+
+#: templates/pages/webinars.html:105
+msgid "Ближайшие вебинары (анонс)"
+msgstr "Upcoming webinars (announcement)"
+
+#: templates/pages/webinars.html:129
+msgid "Все вебинары"
+msgstr "All webinars"
+
+#: templates/popular_news.html:6
+msgid "Популярное"
+msgstr "Popular"
+
+#: templates/widgets/sms_confirm_modal.html:25
+msgid ""
+"На вашу почту был отправлен код, введите его, чтобы завершить регистрацию на "
+"портале"
+msgstr ""
+"A verification code was sent to your email. Enter it to complete "
+"registration on the portal."

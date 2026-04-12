@@ -1,21 +1,21 @@
 {% load static %}
-
+{% load i18n %}
 <div class="flex flex-row justify-between lg:min-h-[479px] shadow-[0px_4px_4px_0px_#0000001A] bg-white mt-3 rounded-[16px] gap-6">
     <div class="flex flex-col justify-center lg:pl-14 gap-3 lg:py-6 p-4">
         <text class=" w-max-[819px] w-full text-sm lg:text-3xl lg:left-[52px] lg:top-[102px] font-[600] lg:leading-10 text-[#A96500]">
-            Портал по охране труда и технике безопасности в Казахстане.
+            {% trans "Портал по охране труда и технике безопасности в Казахстане." %}
         </text>
         <text class=" w-max-[819px] w-full text-sm lg:text-3xl lg:left-[52px] lg:top-[102px] font-[600] lg:leading-10 text-[#A96500]">
-            Инструкции, законы, новости и готовые решения - всё, что нужно специалисту ТБ.
+            {% trans 'Инструкции, законы, новости и готовые решения - всё, что нужно специалисту ТБ.' %}
         </text>
         <text class=" w-max-[819px] w-full text-sm lg:text-3xl lg:left-[52px] lg:top-[102px] font-[600] lg:leading-10 text-[#A96500]">
-            Только проверенная информация, умный поиск и ежедневные обновления - чтобы работать уверенно и безопасно.
+            {% trans 'Только проверенная информация, умный поиск и ежедневные обновления - чтобы работать уверенно и безопасно.' %}
         </text>
         <button
                 type="button"
                 onclick="openModal('registrationModal')"
                 class="max-w-[288px] flex items-center justify-center px-4 py-3 lg:px-6 lg:py-[18px] text-nowrap font-[600] text-white text-sm lg:text-[18px] rounded-[16px] bg-[#ED1A39] border-solid mt-4"                >
-                    Стать частью сообщества
+                    {% trans 'Стать частью сообщества' %}
         </button>
     </div>
     <img class="hidden lg:block rounded-r-[16px] w-full" src="{% static 'img/_src/icons/tehnika-bezopasnosti_02.jpg' %}" alt="main banner">
@@ -25,7 +25,7 @@
         <div class="flex flex-col justify-center items-center gap-2 shrink-0">
             <img class="w-7 lg:w-[58px]" src="{% static 'img/_src/icons/Frame 58.png' %}" alt="news">
             <text class="w-full max-lg:text-sm font-[600] text-[#1E1E1E]">
-                Новости
+                {% trans 'Новости' %}
             </text>
         </div>
     </a>
@@ -33,7 +33,7 @@
         <div  class="flex flex-col justify-center items-center gap-2">
             <img class="w-7 lg:w-[58px]" src="{% static 'img/_src/icons/Frame 58 (1).png' %}" alt="laws">
             <text class="w-full max-lg:text-sm font-[600] text-[#1E1E1E]">
-                Законодательство
+                {% trans 'Законодательство' %}
             </text>
         </div>
     </a>
@@ -41,7 +41,7 @@
         <div  class="flex flex-col justify-center items-center gap-2">
             <img class="w-7 lg:w-[58px]" src="{% static 'img/_src/icons/Frame 59.png' %}" alt="checklists">
             <text class="w-full max-lg:text-sm font-[600] text-[#1E1E1E] text-nowrap">
-                Чек-листы
+                {% trans 'Чек-листы' %}
             </text>
         </div>
     </a>
@@ -49,7 +49,7 @@
         <div  class="flex flex-col justify-center items-center gap-2">
             <img class="w-7 lg:w-[58px]" src="{% static 'img/_src/icons/Frame 58 (2).png' %}" alt="faqs">
             <text class="w-full max-lg:text-sm font-[600] text-[#1E1E1E] text-nowrap">
-                Вопрос-ответ
+                {% trans 'Вопрос-ответ' %}
             </text>
         </div>
     </a>
@@ -57,7 +57,7 @@
         <div  class="flex flex-col justify-center items-center gap-2">
             <img class="w-7 lg:w-[58px]" src="{% static 'img/_src/icons/Frame 58 (3).png' %}" alt="study">
             <text class="w-full max-lg:text-sm font-[600] text-[#1E1E1E]">
-                Обучение
+                {% trans 'Обучение' %}
             </text>
         </div>
     </a>
@@ -65,7 +65,7 @@
         <div  class="flex flex-col justify-center items-center gap-2">
             <img class="w-7 lg:w-[58px]" src="{% static 'img/_src/icons/Frame 58 (4).png' %}" alt="webinars">
             <text class="w-full max-lg:text-sm font-[600] text-[#1E1E1E]">
-                Вебинары
+                {% trans 'Вебинары' %}
             </text>
         </div>
     </a>
@@ -73,7 +73,7 @@
         <div  class="flex flex-col justify-center items-center gap-2">
             <img class="w-7 lg:w-[58px]" src="{% static 'img/_src/icons/Frame 58 (7).png' %}" alt="webinars">
             <text class="w-full max-lg:text-sm font-[600] text-[#1E1E1E]">
-                Форум
+                {% trans 'Форум' %}
             </text>
         </div>
     </a>

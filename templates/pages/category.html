@@ -1,7 +1,7 @@
-{% extends "base.html" %} {% load static %}{% load today_tags %} {% block
+{% extends "base.html" %} {% load static %}{% load i18n %}{% load today_tags %} {% block
 meta_data %}
 <title>
-  Самая актуальная информация Астаны 👉 {{ category }} 👉 01.imaq.kz
+  {% blocktrans with cat=category %}Самая актуальная информация Астаны 👉 {{ cat }} 👉 01.imaq.kz{% endblocktrans %}
 </title>
 <meta name="description" content="{{ category.desc }}⚡01.imaq.kz ⚡" />
 <link rel="canonical" href="https://01.imaq.kz/category/{{ category.slug }}/" />
@@ -15,7 +15,7 @@ meta_data %}
           <h1 class="category-new__title"><span>{{ category }}</span></h1>
           <ul class="main-news__bread-crumb">
             <li>
-              <a href="{% url 'news:index' %}"> Главная </a>
+              <a href="{% url 'news:index' %}"> {% trans "Главная" %} </a>
             </li>
             <li>
               <a href="{% url 'news:category' category.slug %}">

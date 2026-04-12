@@ -127,7 +127,7 @@ LANGUAGE_CODE = 'ru'
 LANGUAGES = [
     ('ru', 'Русский'),
     ('en', 'English'),
-    ('kk', 'Қазақша'),
+    ('kz', 'Қазақша'),
 ]
 
 LOCALE_PATHS = [

@@ -1,5 +1,6 @@
 {% load youtube_embed %}
 {% load static %}
+{% load i18n %}
 <div class="flex flex-col w-full h-auto shadow-[0px_4px_4px_0px_#0000001A] bg-white mt-3 p-4 rounded-2xl">
     <div class="flex flex-col w-full border-b-3 border-[#EFEFEF] pb-3">
         <div class="flex justify-between">
@@ -9,8 +10,7 @@
                 <img src="{% static 'img/_src/icons/Frame 58 (6).png' %}" alt="all link">
             </a>
         </div>
-        <text class="font-medium max-md:text-sm">Наш авторский видеопроект о <br> безопасности с лучшими экспертами <br>
-            страны.
+        <text class="font-medium max-md:text-sm">{% blocktrans %}Наш авторский видеопроект о <br> безопасности с лучшими экспертами <br> страны.{% endblocktrans %}
         </text>
     </div>
     {% for video in videos %}

@@ -10,6 +10,7 @@ from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from datetime import timedelta
 
 from users.models import Author
@@ -189,21 +190,21 @@ class FixedMenu(UUIDMixin):
 
 class Instruction(models.Model):
     TYPE_CHOICES = [
-        ('introductory', 'Вводный'),
-        ('primary', 'Первичный'),
-        ('repeated', 'Повторный'),
-        ('targeted', 'Целевой'),
-        ('unscheduled', 'Внеплановый'),
+        ('introductory', _('Вводный')),
+        ('primary', _('Первичный')),
+        ('repeated', _('Повторный')),
+        ('targeted', _('Целевой')),
+        ('unscheduled', _('Внеплановый')),
     ]
     FORMAT_CHOICES = [
-        ('text', 'Текст'),
-        ('video', 'Видео'),
-        ('pdf', 'PDF'),
+        ('text', _('Текст')),
+        ('video', _('Видео')),
+        ('pdf', _('PDF')),
     ]
     CATEGORY_CHOICES = [
-        ('introductory', 'Вводный'),
-        ('primary_workplace', 'Первичный'),
-        ('instructions', 'Инструкции по БиОТ'),
+        ('introductory', _('Вводный')),
+        ('primary_workplace', _('Первичный')),
+        ('instructions', _('Инструкции по БиОТ')),
     ]
 
     title = models.CharField("Название инструктажа", max_length=255)
@@ -253,9 +254,9 @@ class Instruction(models.Model):
 
 class Document(models.Model):
     CATEGORY_CHOICES = [
-        ('safety_management', 'Safety management'),
-        ('incidents', 'Инциденты и расследования'),
-        ('other', 'Другие документы'),
+        ('safety_management', _('Safety management')),
+        ('incidents', _('Инциденты и расследования')),
+        ('other', _('Другие документы')),
     ]
 
     id = models.AutoField(primary_key=True)
@@ -361,10 +362,10 @@ class AutomationCases(models.Model):
 
 class Checklist(models.Model):
     CATEGORY_CHOICES = [
-        ('checklist_1', 'Обходы по Безопасности'),
-        ('checklist_2', 'Проверочные листы оборудования'),
-        ('checklist_3', 'Шаблоны расследований'),
-        ('checklist_4', 'Отчетность'),
+        ('checklist_1', _('Обходы по Безопасности')),
+        ('checklist_2', _('Проверочные листы оборудования')),
+        ('checklist_3', _('Шаблоны расследований')),
+        ('checklist_4', _('Отчетность')),
     ]
     category = models.CharField("Категория", max_length=50, choices=CATEGORY_CHOICES, blank=True, null=True)
     id = models.AutoField(primary_key=True)
@@ -420,11 +421,11 @@ class Qauipmedia(models.Model):
 
 class Law(models.Model):
     CATEGORY_CHOICES = [
-        ('main_laws', 'Основные законы и кодексы'),
-        ('RLA', 'Нормативно-правовые акты (НПА)'),
-        ('rules_and_requirements', 'Правила и требования по охране труда'),
-        ('tech_standarts', 'Технические регламенты и стандарты'),
-        ('changes_and_updates', 'Изменения и обновления'),
+        ('main_laws', _('Основные законы и кодексы')),
+        ('RLA', _('Нормативно-правовые акты (НПА)')),
+        ('rules_and_requirements', _('Правила и требования по охране труда')),
+        ('tech_standarts', _('Технические регламенты и стандарты')),
+        ('changes_and_updates', _('Изменения и обновления')),
     ]
 
     id = models.AutoField(primary_key=True)
@@ -490,9 +491,9 @@ class LawComment(models.Model):
 
 class Study(models.Model):
     CATEGORY_CHOICES = [
-        ('construction', 'Строительство'),
-        ('mining', 'Горная промышленность'),
-        ('neftegas', 'Нефтегаз'),
+        ('construction', _('Строительство')),
+        ('mining', _('Горная промышленность')),
+        ('neftegas', _('Нефтегаз')),
     ]
 
     id = models.AutoField(primary_key=True)
@@ -517,14 +518,14 @@ class Study(models.Model):
 
 class LegalAct(models.Model):
     TYPE_CHOICES = [
-        ('law', 'Закон'),
-        ('code', 'Кодекс'),
-        ('npa', 'НПА'),
-        ('gost', 'ГОСТ'),
+        ('law', _('Закон')),
+        ('code', _('Кодекс')),
+        ('npa', _('НПА')),
+        ('gost', _('ГОСТ')),
     ]
     RELEVANCE_CHOICES = [
-        ('actual', 'Актуален'),
-        ('obsolete', 'Устарел'),
+        ('actual', _('Актуален')),
+        ('obsolete', _('Устарел')),
     ]
 
     id = models.AutoField(primary_key=True)
@@ -549,11 +550,11 @@ class LegalAct(models.Model):
 
 class FAQ(models.Model):
     CATEGORY_CHOICES = [
-        ('organisation', 'Организация охраны труда'),
-        ('PPE', 'СИЗ и рабочая форма'),
-        ('documents', 'Документы и оформление'),
-        ('inspections', 'Проверки и ответственность'),
-        ('accidents', 'Несчастные случаи и расследования'),
+        ('organisation', _('Организация охраны труда')),
+        ('PPE', _('СИЗ и рабочая форма')),
+        ('documents', _('Документы и оформление')),
+        ('inspections', _('Проверки и ответственность')),
+        ('accidents', _('Несчастные случаи и расследования')),
     ]
     id = models.AutoField(primary_key=True)
     question = models.TextField("Вопрос", blank=True, null=True)

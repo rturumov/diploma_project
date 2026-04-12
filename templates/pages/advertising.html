@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load static %} {% load today_tags %} {% block
+{% extends "base.html" %} {% load static %} {% load i18n %} {% load today_tags %} {% block
 content %}
 <main>
   <section>
@@ -8,14 +8,12 @@ content %}
         <div class="main-news">
           <div class="info-site">
             <ul class="main-news__bread-crumb">
-              <li><a href="{% url 'news:index' %}">Главная</a></li>
-              <li><span class="current">Реклама</span></li>
+              <li><a href="{% url 'news:index' %}">{% trans "Главная" %}</a></li>
+              <li><span class="current">{% trans "Реклама" %}</span></li>
             </ul>
-            <h1>Реклама</h1>
+            <h1>{% trans "Реклама" %}</h1>
             <p>
-              По вопросам размещения рекламных и PR-материалов, условиям
-              сотрудничества с 01.imaq.kz обращайтесь по номеру телефона:
-              +77003969700. Или пишите на электронную почту: press@imaq.kz
+              {% blocktrans trimmed %}По вопросам размещения рекламных и PR-материалов, условиям сотрудничества с 01.imaq.kz обращайтесь по номеру телефона: +77003969700. Или пишите на электронную почту: press@imaq.kz{% endblocktrans %}
             </p>
           </div>
         </div>
