@@ -14,6 +14,7 @@ from .form import ArticleCommentForm, LawCommentForm
 from .mixins import three_days_ago
 from .models import Article, Category, Tag, FixedMenu, Instruction, Document, Law, Study, FAQ, \
     Event, Checklist, EventCategory, AutomationCases, RiskManagement, City, Qauipmedia, Author
+from .calendar_i18n import format_calendar_day_heading, month_get_param_to_number, month_names_capitalized
 from .decorators import counted
 
 
@@ -140,7 +141,7 @@ def index(request):
         'calendar_month': calendar_month,
         'event_date': event_date,
         'events_by_day': events_by_day,
-        'event_day_localized': event_date.strftime('%d %B'),
+        'event_day_localized': format_calendar_day_heading(event_date),
         'today': date.today(),
         # instructions
         'instructions': instructions,
@@ -177,7 +178,7 @@ def get_events_by_date_api(request):
         'events': events,
         'today': today,
         'selected_date': selected_date,
-        'event_day_localized': selected_date.strftime('%d %B'),
+        'event_day_localized': format_calendar_day_heading(selected_date),
     }
     return render(request, 'includes/main/calendar_events.html', context)
 
@@ -200,7 +201,7 @@ def get_news_by_date_api(request):
         'news': news,
         'today': today,
         'selected_date': selected_date,
-        'event_day_localized': selected_date.strftime('%d %B'),
+        'event_day_localized': format_calendar_day_heading(selected_date),
     }
     return render(request, 'includes/news/calendar_news.html', context)
 
@@ -704,13 +705,6 @@ def webinars_view(request):
     return render(request, 'pages/webinars.html', context)
 
 
-RUSSIAN_MONTHS = {
-    'Январь': 1, 'Февраль': 2, 'Март': 3, 'Апрель': 4,
-    'Май': 5, 'Июнь': 6, 'Июль': 7, 'Август': 8,
-    'Сентябрь': 9, 'Октябрь': 10, 'Ноябрь': 11, 'Декабрь': 12
-}
-
-
 def calendar_view(request):
     today = timezone.now().date()
 
@@ -728,9 +722,7 @@ def calendar_view(request):
         except ValueError:
             pass
 
-    month_number = None
-    if selected_month_name in RUSSIAN_MONTHS:
-        month_number = RUSSIAN_MONTHS[selected_month_name]
+    month_number = month_get_param_to_number(selected_month_name)
 
     # Начальный queryset
     events = Event.objects.all()
@@ -782,9 +774,9 @@ def calendar_view(request):
         'calendar_month': calendar_month,
         'event_date': event_date,
         'events_by_day': events_by_day,
-        'event_day_localized': event_date.strftime('%d %B'),
+        'event_day_localized': format_calendar_day_heading(event_date),
         'today': today,
-        'months': list(RUSSIAN_MONTHS.keys()),
+        'months': month_names_capitalized(),
     }
 
     return render(request, 'pages/event_calendar.html', context)

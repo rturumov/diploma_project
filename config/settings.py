@@ -33,6 +33,7 @@ CORS_ORIGIN_WHITELIST = [
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'ai_chat',
     'django.contrib.auth',
     'django.contrib.admin',
@@ -133,6 +134,24 @@ LANGUAGES = [
 LOCALE_PATHS = [
     BASE_DIR / "locale",
 ]
+
+# DB-backed translations (django-modeltranslation); must match LANGUAGES codes
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+MODELTRANSLATION_LANGUAGES = ('ru', 'en', 'kz')
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('ru',)
+
+# Django's get_language_info() only knows ISO-style codes; we use `kz` for locale dir + DB columns.
+from django.conf import locale as dj_locale  # noqa: E402
+
+dj_locale.LANG_INFO.setdefault(
+    'kz',
+    {
+        'bidi': False,
+        'code': 'kz',
+        'name': 'Kazakh',
+        'name_local': 'Қазақша',
+    },
+)
 
 TIME_ZONE = 'UTC'
 
