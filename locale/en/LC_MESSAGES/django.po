@@ -301,6 +301,10 @@ msgstr "Enter password"
 msgid "Регистрация"
 msgstr "Sign up"
 
+#: templates/includes/auth_modal.html
+msgid "Зарегистрироваться"
+msgstr "Register"
+
 #: templates/includes/auth_modal.html:55
 msgid "Забыли пароль?"
 msgstr "Forgot your password?"

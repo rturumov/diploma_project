@@ -17,7 +17,7 @@
             {% csrf_token %}
 
             <div class="flex gap-[10px]">
-                <img src="{% static 'img/16/phone.svg' %}" alt="profile"/>
+                <img src="{% static 'img/16/email.svg' %}" alt=""/>
                 <label class="w-full">
                     <input name="username" type="email" placeholder="{% trans 'Введите логин' %}"
                            class="w-full py-2 border-b border-[#EFEFEF] focus:outline-none focus:font-bold text-sm"/>
@@ -128,7 +128,7 @@
                     type="submit"
                     class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl py-3"
             >
-                {% trans 'Войти' %}
+                {% trans 'Зарегистрироваться' %}
             </button>
 
             <!-- Link -->
