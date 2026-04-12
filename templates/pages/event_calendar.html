@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% load new_details_modal %}
 {% load calendar_widget %}
 {% block content %}
 <div class="flex flex-col justify-center mb-6 max-lg:bg-white" xmlns="http://www.w3.org/1999/html">
     <div class="p-6 bg-white mb-3 lg:px-[100px]">
         <p class="text-xs font-bold text-center mb-4">
-            Мероприятия по ТБ на {{ today.year }}
+            {% blocktrans with year=today.year %}Мероприятия по ТБ на {{ year }}{% endblocktrans %}
         </p>
         <div class="flex overflow-auto gap-3">
             {% for event in year_events %}
@@ -24,8 +25,8 @@
                     <img class="w-[36px] h-[36px] min-w-9 min-h-9" src="{% static 'img/_src/icons/Frame 115.svg' %}">
                 </a>
                 <div class="flex flex-col">
-                    <text class="font-[700] text-[24px]">Календарь событий</text>
-                    <text class="font-[500] text-[16px] max-lg:text-[14px]">Смотрите и планируйте все мероприятия вместе с нами
+                    <text class="font-[700] text-[24px]">{% trans 'Календарь событий' %}</text>
+                    <text class="font-[500] text-[16px] max-lg:text-[14px]">{% trans 'Смотрите и планируйте все мероприятия вместе с нами' %}
                     </text>
                 </div>
             </div>
@@ -39,7 +40,7 @@
                             <label>
                                 <select class="text-[#AF1E2A] text-xs"
                                         onchange="updateQueryParamAndReload('city', event.target.value)">
-                                    <option disabled {% if not request.GET.city %}selected{% endif %}>Город</option>
+                                    <option disabled {% if not request.GET.city %}selected{% endif %}>{% trans 'Город' %}</option>
                                     {% for city in cities %}
                                     <option value="{{ city.name }}"
                                             {% if request.GET.city == city.name %}selected{% endif %}>
@@ -57,7 +58,7 @@
                                 <select class="text-[#AF1E2A] text-xs"
                                         onchange="updateQueryParamAndReload('month', event.target.value)">
                                     <option disabled {% if not request.GET.month %} selected {% endif %} >
-                                        Месяц
+                                        {% trans 'Месяц' %}
                                     </option>
                                     {% for month  in months  %}
                                     <option value="{{ month }}" {% if request.GET.month == month %} selected {% endif %}>
@@ -89,7 +90,7 @@
                                             text-[#AF1E2A]
                                         {% endif %}
                                     ">
-                            Сбросить фильтры
+                            {% trans 'Сбросить фильтры' %}
                         </text>
                     </a>
                 </div>
@@ -100,7 +101,7 @@
                                 type="text"
                                 name="search"
                                 value="{{ request.GET.search }}"
-                                placeholder="Быстрый поиск..."
+                                placeholder="{% trans 'Быстрый поиск...' %}"
                                 class="w-full h-[39px] font-[600] text-[12px] text-black bg-[#F5F5F5] rounded-[16px] placeholder:text-[12px] px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-[#1E1E1E] w-full"
                         />
                     </label>
@@ -110,7 +111,7 @@
                 <a onclick="updateQueryParamAndReload('category', '')"
                    class="max-lg:shrink-0 cursor-pointer text-[12px] p-[10px] font-medium pb-2 border-b-3 {% if not request.GET.category %}border-red-600 text-red-600{% else %}border-transparent text-gray-600{% endif %}"
                 >
-                    Все
+                    {% trans 'Все' %}
                 </a>
                 {% for category in categories %}
                 <div onclick="updateQueryParamAndReload('category', '{{ category.slug }}')"
@@ -138,11 +139,11 @@
                                                             {% endif %}"
                                 >
                                     {% if tag.slug == 'free' %}
-                                    Бесплатно
+                                    {% trans 'Бесплатно' %}
                                     {% elif tag.slug == 'certificate' %}
-                                    Сертификат
+                                    {% trans 'Сертификат' %}
                                     {% elif tag.slug == 'live' %}
-                                    Только в прямом эфире
+                                    {% trans 'Только в прямом эфире' %}
                                     {% endif %}
                                 </div>
                                 {% endfor %}
@@ -165,7 +166,7 @@
                                 </div>
                                 <div class="flex flex-row justify-between w-full items-center gap-[10px]">
                                     <text class=" text-[14px] text-[#787878]">{{ event.duration_hours }}
-                                        часа
+                                        {% trans 'часа' %}
                                     </text>
                                     <text class="text-sm text-[14px] text-[#787878]">{{ event.date|date:"d.m.Y" }}</text>
                                 </div>
@@ -181,7 +182,7 @@
                                 </div>
                             </div>
                             {% empty %}
-                            <p class="text-sm">Ничего не найдено</p>
+                            <p class="text-sm">{% trans 'Ничего не найдено' %}</p>
                             {% endfor %}
                         </div>
                     </div>

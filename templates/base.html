@@ -1,5 +1,6 @@
 {% load sms_confirm_modal %}
 {% load static %}
+{% load i18n %}
 <html lang="ru">
 <head>
     <!-- Google tag (gtag.js) -->
@@ -17,17 +18,30 @@
     </script>
 
     <meta charset="utf-8"/>
-    {% block meta_data %}
-        <title>
-            Портал по охране труда и технике безопасности в Казахстане.
-        </title>
-        <meta
-                name="description"
-                content="Инструкции, законы, новости и готовые решения - всё, что нужно специалисту ТБ.
-                        Только проверенная информация, умный поиск и ежедневные обновления - чтобы работать уверенно и безопасно."
-        />
-        <meta property="og:image" content="{% static 'img/@1x/preview.jpg' %}"/>
-    {% endblock meta_data %}
+<!--    {% block meta_data %}-->
+
+<!--        {% if LANGUAGE_CODE == "en" %}-->
+<!--            <title>Occupational health and safety portal in Kazakhstan.</title>-->
+<!--            <meta-->
+<!--                    name="description"-->
+<!--                    content="Instructions, laws, news, and ready-made solutions—everything a safety specialist needs.-->
+<!--                            Only verified information, smart search, and daily updates—to work confidently and safely." />-->
+<!--        {% elif LANGUAGE_CODE == "kz" %}-->
+<!--            <title>Қазақстандағы еңбекті қорғау порталы</title>-->
+<!--            <meta-->
+<!--                    name="description"-->
+<!--                    content="Нұсқаулар, заңдар, жаңалықтар және дайын шешімдер — қауіпсіздік маманына қажет нәрсенің бәрі.-->
+<!--                            Тек тексерілген ақпарат, ақылды іздеу және күнделікті жаңартулар — сенімді және қауіпсіз жұмыс істеу үшін." />-->
+<!--        {% else %}-->
+<!--            <title>{% trans "Портал по охране труда и технике безопасности в Казахстане." %}</title>-->
+<!--            <meta-->
+<!--                    name="description"-->
+<!--                    content="Инструкции, законы, новости и готовые решения - всё, что нужно специалисту ТБ.-->
+<!--                            Только проверенная информация, умный поиск и ежедневные обновления - чтобы работать уверенно и безопасно."-->
+<!--            />-->
+<!--            <meta property="og:image" content="{% static 'img/@1x/preview.jpg' %}"/>-->
+<!--        {% endif %}-->
+<!--    {% endblock meta_data %}-->
     <link rel="preconnect" href="https://d2z6dsbl451t3b.cloudfront.net"/>
     <link rel="dns-prefetch" href="https://d2z6dsbl451t3b.cloudfront.net"/>
     <link rel="dns-prefetch" href="https://01.imaq.kz"/>
@@ -59,22 +73,22 @@
                             alt="logo"/>
                 </a>
                 <h1 class="font-[700] text-[16px] leading-5 w-full max-w-[228px] flex items-center">
-                    Safety Hub - безопасность как стандарт работы
+                    {% trans "Safety Hub - безопасность как стандарт работы" %}
                 </h1>
             </div>
 
             <a
                     href="/"
-                    class="flex font-[700] text-[16px] items-center justify-center"
-            >Главная</a
+                    class="flex font-[700] text-[16px] items-center justify-center whitespace-nowrap"
+            >{% trans "Главная" %}</a
             >
-            <a href="{% url 'news:about' %}" class="flex font-[700] text-[16px] items-center justify-center">О нас</a>
+            <a href="{% url 'news:about' %}" class="flex font-[700] text-[16px] items-center justify-center whitespace-nowrap">{% trans "О нас" %}</a>
             {% if request.user.is_authenticated %}
                 <button onclick="openModal('askQuestionModal')"
-                        class="flex font-[700] text-[16px] items-center justify-center cursor-pointer">Задай вопрос
+                        class="flex font-[700] text-[16px] items-center justify-center cursor-pointer whitespace-nowrap">{% trans "Задай вопрос" %}
                 </button>
             {% endif %}
-            <a href="/ai/" class="flex font-[700] text-[16px] items-center justify-center">AI Ассистент</a>
+            <a href="/ai/" class="flex font-[700] text-[16px] items-center justify-center whitespace-nowrap">{% trans "AI Ассистент" %}</a>
         </div>
 
 
@@ -83,7 +97,7 @@
                 <input
                         type="text"
                         name="search"
-                        placeholder="Поиск через HSE GPT..."
+                        placeholder="{% trans 'Поиск через HSE GPT...' %}"
                         class="font-[600] h-[48px] text-[12px] text-black bg-[#F5F5F5] rounded-[16px] placeholder:text-[12px] h-[39px] rounded px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-[#1E1E1E] min-w-[300px]"
                 />
             </form>
@@ -97,7 +111,7 @@
                         onclick="openModal('authModal')"
                         class="h-[48px] flex font-[600] text-[12px] text-[#AF1E2A] w-[84px] justify-center border-1 bg-white rounded-[16px] items-center border-solid px-6 py-3"
                 >
-                    Войти
+                    {% trans "Войти" %}
                 </button>
             {% endif %}
             {% if request.user.is_authenticated %}
@@ -105,12 +119,31 @@
                     {% csrf_token %}
                     <button
                             type="submit"
-                            title="Выйти"
+                            title="{% trans 'Выйти' %}"
                             class="cursor-pointer h-[48px] flex justify-center border-1 bg-white rounded-[16px] items-center border-solid px-6 py-3">
                         <img class="min-w-6 min-h-6 w-6 h-6" src="{% static 'img/_src/icons/exit_to_app.svg' %}">
                     </button>
                 </form>
             {% endif %}
+            <form action="{% url 'set_language' %}" method="post" class="flex gap-2 items-center scale-80">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.path }}">
+
+                <button type="submit" name="language" value="ru"
+                        class="text-white font-bold px-2 py-1 border rounded">
+                    RU
+                </button>
+
+                <button type="submit" name="language" value="en"
+                        class="text-white font-bold px-2 py-1 border rounded">
+                    EN
+                </button>
+
+                <button type="submit" name="language" value="kz"
+                        class="text-white font-bold px-2 py-1 border rounded">
+                    KZ
+                </button>
+            </form>
         </div>
     </div>
 </header>
@@ -126,17 +159,17 @@
                 {% csrf_token %}
                 <button
                         type="submit"
-                        title="Выйти"
+                        title="{% trans 'Выйти' %}"
                         class=" flex justify-center items-center ">
                     <img class="min-w-8 min-h-8 w-8 h-8" src="{% static 'img/_src/icons/exit_to_app1.svg' %}">
                 </button>
             </form>
         {% else %}
-            <img class="h-8 w-8" src="{% static 'img/32/user.svg' %}" alt="user"/>
+            <img class="h-8 w-8" src="{% static 'img/32/user.svg' %}" alt="{% trans 'user' %}"/>
         {% endif %}
 
         <button onclick="toggleMenu()">
-            <img class="h-8 w-8" src="{% static 'img/32/menu.svg' %}" alt="menu"/>
+            <img class="h-8 w-8" src="{% static 'img/32/menu.svg' %}" alt="{% trans 'menu' %}"/>
         </button>
 
     </div>
@@ -153,24 +186,24 @@
         <div class="flex flex-col gap-4 text-base font-semibold">
             <div class="flex flex-col md:flex-row items-start md:items-center gap-4 border-1 border-[#2B2B2B] rounded-2xl p-6">
                 <img src="{% static 'img/_src/icons/logo.png' %}" class="h-[64px]" alt="logo"/>
-                <p class="text-sm ">Safety Hub —<br/>безопасность как стандарт</p>
+                <p class="text-sm ">{% trans "Safety Hub — безопасность как стандарт" %}</p>
             </div>
             <form method="get" action="{% url 'news:search_results' %}">
                 <input
                         type="text"
                         name="search"
-                        placeholder="Поиск через HSE GPT..."
+                        placeholder="{% trans 'Поиск через HSE GPT...' %}"
                         class="w-full p-4  text-black text-base bg-white rounded-2xl placeholder:text-black"/>
             </form>
 
-            <a href="/" class="bg-[#2B2B2B] rounded-2xl p-4">Главная</a>
-            <a href="{% url 'news:about' %}" class="bg-[#2B2B2B] rounded-2xl p-4">О нас</a>
+            <a href="/" class="bg-[#2B2B2B] rounded-2xl p-4">{% trans "Главная" %}</a>
+            <a href="{% url 'news:about' %}" class="bg-[#2B2B2B] rounded-2xl p-4">{% trans "О нас" %}</a>
             {% if request.user.is_authenticated %}
                 <button onclick="openModal('askQuestionModal')"
-                        class="flex flex-start cursor-pointer bg-[#2B2B2B] rounded-2xl p-4">Задай вопрос
+                        class="flex flex-start cursor-pointer bg-[#2B2B2B] rounded-2xl p-4">{% trans "Задай вопрос" %}
                 </button>
             {% endif %}
-            <a href="/ai/" class="bg-[#2B2B2B] rounded-2xl p-4">AI Ассистент</a>
+            <a href="/ai/" class="bg-[#2B2B2B] rounded-2xl p-4">{% trans "AI Ассистент" %}</a>
             <div class="flex gap-4">
 
             </div>
@@ -185,7 +218,7 @@
                         onclick="openModal('authModal')"
                         class="flex font-[600]  w-full items-center bg-[#2B2B2B] rounded-2xl p-4"
                 >
-                    Войти в систему
+                    {% trans "Войти в систему" %}
                 </button>
             {% endif %}
         </div>

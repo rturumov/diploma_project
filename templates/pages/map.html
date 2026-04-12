@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load static %}{% load today_tags %} {% block
+{% extends "base.html" %} {% load static %}{% load i18n %}{% load today_tags %} {% block
 content %}
 <main>
   <section>
@@ -8,12 +8,12 @@ content %}
         <div class="main-news">
           <div class="site-map">
             <ul class="site-map__breadcrumb main-news__bread-crumb">
-              <li><a href="{% url 'news:index' %}">Главная</a></li>
-              <li><span class="current">Карта сайта</span></li>
+              <li><a href="{% url 'news:index' %}">{% trans "Главная" %}</a></li>
+              <li><span class="current">{% trans "Карта сайта" %}</span></li>
             </ul>
-            <h1>Карта сайта</h1>
+            <h1>{% trans "Карта сайта" %}</h1>
             <div class="site-map__item">
-              <h2>Категории</h2>
+              <h2>{% trans "Категории" %}</h2>
               <menu class="site-map__links">
                 {% for category in categories %}
                 <li>

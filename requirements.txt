@@ -32,4 +32,4 @@ wcwidth==0.2.6
 psycopg2-binary==2.9.7
 
 pgvector
-groq
+groq==1.1.2

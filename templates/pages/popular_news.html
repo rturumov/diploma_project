@@ -1,7 +1,7 @@
-{% extends "base.html" %} {% load static %} {% load today_tags %} {% block
+{% extends "base.html" %} {% load static %} {% load i18n %} {% load today_tags %} {% block
 meta_data %}
 <title>
-  Самая актуальная информация Астаны 👉 {{ category }} 👉 01.imaq.kz
+  {% blocktrans with cat=category %}Самая актуальная информация Астаны 👉 {{ cat }} 👉 01.imaq.kz{% endblocktrans %}
 </title>
 <meta name="description" content="{{ category.desc }}⚡01.imaq.kz ⚡" />
 <link rel="canonical" href="https://01.imaq.kz/popular_news/" />
@@ -12,13 +12,13 @@ meta_data %}
       <div class="wrap wrap__category">
         {% include "popular_news.html" %}
         <div class="main-news category-new__title">
-          <h1 class="category-new__title"><span>Попу</span>лярные новости</h1>
+          <h1 class="category-new__title">{% trans "Популярные новости" %}</h1>
           <ul class="main-news__bread-crumb">
             <li>
-              <a href="{% url 'news:index' %}"> Главная </a>
+              <a href="{% url 'news:index' %}"> {% trans "Главная" %} </a>
             </li>
             <li>
-              <a href="{% url 'news:all_news' %}"> Популярные новости </a>
+              <a href="{% url 'news:all_news' %}"> {% trans "Популярные новости" %} </a>
             </li>
           </ul>
 

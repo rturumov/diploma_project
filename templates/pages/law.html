@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% load i18n %} {% block content %}
     <div class="flex flex-col justify-center lg:mx-[100px] mb-6 mx-6">
         <div class="flex flex-row max-lg:flex-col gap-2 justify-center pt-3">
             <div class="flex flex-col max-w-[1312px] w-full h-auto shadow-[0px_4px_4px_0px_#0000001A] bg-white p-6 rounded-[16px]">
@@ -7,8 +7,8 @@
                         <img class="w-[36px] h-[36px] min-w-9 min-h-9" src="{% static 'img/_src/icons/Frame 115.svg' %}">
                     </a>
                     <div class="flex flex-col">
-                        <text class="font-[700] text-[24px]">Законодательство</text>
-                        <text class="font-[500] text-[16px]">Актуальные законы, правила и нормативы по ТБ в РК</text>
+                        <text class="font-[700] text-[24px]">{% trans 'Законодательство' %}</text>
+                        <text class="font-[500] text-[16px]">{% trans 'Актуальные законы, правила и нормативы по ТБ в РК' %}</text>
                     </div>
                 </div>
                 <div class="flex items-center py-6 gap-6">
@@ -31,7 +31,7 @@
                                         text-[#AF1E2A]
                                     {% endif %}
                                 ">
-                                Показать все
+                                {% trans 'Показать все' %}
                             </text>
                             <div class="w-6 h-6">
                                 {% if not request.GET.sort and not request.GET.search %}
@@ -50,7 +50,7 @@
                                     type="text"
                                     name="search"
                                     value="{{ request.GET.search }}"
-                                    placeholder="Быстрый поиск информации по ключевым словам..."
+                                    placeholder="{% trans 'Быстрый поиск информации по ключевым словам...' %}"
                                     class="h-[39px] font-[600] text-[12px] text-black bg-[#F5F5F5] rounded-[16px] placeholder:text-[12px] px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-[#1E1E1E] w-full"
                             />
                         </label>
@@ -64,7 +64,7 @@
                            {% else %}
                                border-transparent text-gray-600
                            {% endif %}">
-                        Все
+                        {% trans 'Все' %}
                     </a>
                     {% for key, label in categories %}
                         <a href="?category={{ key }}"
@@ -90,7 +90,7 @@
                                     <div class="flex flex-row max-sm:flex-col max-sm:gap-3 sm:items-center justify-between px-3 sm:py-3 pb-6 border-[#EFEFEF] border-b-1">
                                         <div class="flex flex-col gap-[10px]">
                                             {% if law.is_new %}
-                                                <div class="flex justify-center items-center text-[10px] text-white rounded-[16px] bg-[#DF3131] py-1 px-2 w-fit h-4">Новое</div>
+                                                <div class="flex justify-center items-center text-[10px] text-white rounded-[16px] bg-[#DF3131] py-1 px-2 w-fit h-4">{% trans 'Новое' %}</div>
                                             {% endif %}
                                             <p class="text-[14px]">{{ law.created_date|date:"d.m.Y" }}</p>
                                             <div class="flex item-center gap-[10px]">
@@ -133,13 +133,13 @@
             <div class="flex flex-col lg:max-w-[400px] gap-2">
                 <div class="flex flex-col w-full h-auto shadow-[0px_4px_4px_0px_#0000001A] bg-white p-6 rounded-[16px]">
                     <div class="flex flex-row justify-between w-full gap-[64px] h-[86px] border-b-2 border-[#EFEFEF] font-[700] text-[24px]">
-                        Последние изменения в законодательстве
+                        {% trans 'Последние изменения в законодательстве' %}
                     </div>
                     <div class="flex flex-col w-full h-auto">
                         {% for law in side_laws|slice:":3" %}
                             <div class="flex flex-col w-full gap-[10px] p-3 border-b-1 border-[#EFEFEF]">
                                 {% if law.is_new %}
-                                    <div class="flex justify-center items-center text-[10px] text-white rounded-[16px] bg-[#DF3131] py-1 px-2 w-fit h-4">Новое</div>
+                                    <div class="flex justify-center items-center text-[10px] text-white rounded-[16px] bg-[#DF3131] py-1 px-2 w-fit h-4">{% trans 'Новое' %}</div>
                                 {% endif %}
                                 <div class="flex flex-row max-sm:flex-col max-sm:gap-3 sm:items-center items-start flex-nowrap justify-between">
                                     <div class="flex flex-col gap-2">
@@ -180,13 +180,12 @@
             <div class="bg-white rounded-2xl w-full max-w-5xl p-6 shadow-xl text-sm" onclick="event.stopPropagation()">
                 <!-- Header -->
                 <div class="flex flex-col border-b-3 border-b-[#F5F5F5] gap-1 mb-6">
-                    <h2 class="max-md:text-xl text-2xl font-bold mb-1">Изменение в правилах проведения обучения по охране труда</h2>
-                    <p class="max-md:text-sm font-medium mb-3">Внесены изменения в порядок проведения обучения и проверки знаний по
-                        безопасности, и охране труда</p>
+                    <h2 class="max-md:text-xl text-2xl font-bold mb-1">{% trans 'Изменение в правилах проведения обучения по охране труда' %}</h2>
+                    <p class="max-md:text-sm font-medium mb-3">{% trans 'Внесены изменения в порядок проведения обучения и проверки знаний по безопасности, и охране труда' %}</p>
                 </div>
                 <div class="flex flex-col w-full h-auto gap-6">
                     <div class="flex flex-col">
-                        <p class="font-bold ml-[9px] mb-3">Экспертные комментарии</p>
+                        <p class="font-bold ml-[9px] mb-3">{% trans 'Экспертные комментарии' %}</p>
                         {% for comment in comments %}
                             <div class="flex flex-row justify-start items-center pt-2 border-b-1 border-[#EFEFEF] py-3">
                                 <div class="flex flex-col ml-[9px] gap-0.5">
@@ -197,7 +196,7 @@
                                 </div>
                             </div>
                         {% empty %}
-                            <p class="text-sm ml-[9px]">Ничего нет</p>
+                            <p class="text-sm ml-[9px]">{% trans 'Ничего нет' %}</p>
                         {% endfor %}
                     </div>
                     {% if request.user.is_authenticated %}
@@ -207,7 +206,7 @@
                                 <label class="w-full">
                                     <input type="text"
                                            name="text"
-                                           placeholder="Ваш комментарий..."
+                                           placeholder="{% trans 'Ваш комментарий...' %}"
                                            class="w-full border-b-1 border-[#EFEFEF] text-[#444444] placeholder:text-[#444444] ml-[9px] py-3 text-sm focus:outline-none"/>
                                 </label>
                                 <button type="submit">

@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% load i18n %} {% block content %}
     <div class="flex flex-col justify-center lg:mx-[100px] mb-6 mx-6">
         <div class="flex flex-row gap-2 max-lg:flex-col justify-center pt-3">
             <div class="flex flex-col max-w-[1312px] w-full h-fit shadow-[0px_4px_4px_0px_#0000001A] bg-white p-6 rounded-[16px]">
@@ -7,8 +7,8 @@
                         <img class="w-[36px] h-[36px] min-w-9 min-h-9" src="{% static 'img/_src/icons/Frame 115.svg' %}">
                     </a>
                     <div class="flex flex-col">
-                        <text class="font-[700] text-[24px]">Чек листы</text>
-                        <text class="font-[500] text-[16px]">Важные чек листы для каждого</text>
+                        <text class="font-[700] text-[24px]">{% trans 'Чек листы' %}</text>
+                        <text class="font-[500] text-[16px]">{% trans 'Важные чек листы для каждого' %}</text>
                     </div>
                 </div>
                 <div class="flex items-center py-6 gap-6">
@@ -31,7 +31,7 @@
                                         text-[#AF1E2A]
                                     {% endif %}
                                 ">
-                                Показать все
+                                {% trans 'Показать все' %}
                             </text>
                             <div class="w-6 h-6">
                                 {% if not request.GET.sort and not request.GET.search %}
@@ -50,7 +50,7 @@
                                     type="text"
                                     name="search"
                                     value="{{ request.GET.search }}"
-                                    placeholder="Не видишь нужный чек лист? Попробуй найти через ключевые слова поиска..."
+                                    placeholder="{% trans 'Не видишь нужный чек лист? Попробуй найти через ключевые слова поиска...' %}"
                                     class="h-[39px] font-[600] text-[12px] text-black bg-[#F5F5F5] rounded-[16px] placeholder:text-[12px] px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-[#1E1E1E] w-full"
                             />
                         </label>
@@ -79,7 +79,7 @@
                                     {% for checklist in checklists %}
                                         <div class="flex flex-col items-center h-auto px-3 py-3 pb-6 border-[#EFEFEF] border-b-1 gap-[10px]">
                                             {% if checklist.is_new %}
-                                                <div class="flex justify-center items-center self-start text-[10px] text-white rounded-[16px] bg-[#DF3131] py-1 px-2 w-fit h-4">Новое</div>
+                                                <div class="flex justify-center items-center self-start text-[10px] text-white rounded-[16px] bg-[#DF3131] py-1 px-2 w-fit h-4">{% trans 'Новое' %}</div>
                                             {% endif %}
                                             <div class="flex flex-row w-full justify-between">
                                                 <p class="text-[#3F8CFF]">{{ checklist.get_file_extension }}</p>
@@ -118,7 +118,7 @@
 
                                         </div>
                                     {% empty %}
-                                        <p>Ничего нет</p>
+                                        <p>{% trans 'Ничего нет' %}</p>
                                     {% endfor %}
                                 </div>
                             </div>
@@ -129,13 +129,13 @@
             <div class="flex flex-col lg:max-w-[400px] gap-2 w-full">
                 <div class="flex flex-col w-full h-auto shadow-[0px_4px_4px_0px_#0000001A] bg-white p-6 rounded-[16px]">
                     <div class="flex flex-row justify-between w-full gap-[64px] border-b-3 border-[#EFEFEF] font-[700] text-[24px] pb-5">
-                        Последние обновления
+                        {% trans 'Последние обновления' %}
                     </div>
                     <div class="flex flex-col w-full h-auto">
                         {% for checklist in side_checklists %}
                             <div class="flex flex-col items-start justify-between px-3 py-3 pb-6 border-[#EFEFEF] border-b-1 gap-[10px]">
                                 {% if checklist.is_new %}
-                                    <div class="flex justify-center items-center text-[10px] text-white rounded-[16px] bg-[#DF3131] py-1 px-2 w-fit h-4">Новое</div>
+                                    <div class="flex justify-center items-center text-[10px] text-white rounded-[16px] bg-[#DF3131] py-1 px-2 w-fit h-4">{% trans 'Новое' %}</div>
                                 {% endif %}
                                 <div class="flex flex-row w-full justify-between">
                                     <p class="text-[#3F8CFF]">{{ checklist.get_file_extension }}</p>

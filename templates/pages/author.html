@@ -1,9 +1,9 @@
-{% extends "base.html" %} {% load static %}{% load today_tags %} {% block
+{% extends "base.html" %} {% load static %}{% load i18n %}{% load today_tags %} {% block
 meta_data %}
-<title>Самая актуальная информация Астаны 👉 01.imaq.kz</title>
+<title>{% trans "Самая актуальная информация Астаны 👉 01.imaq.kz" %}</title>
 <meta
   name="description"
-  content="Новости Казахстана ✅ Картина дня, происшествия, новости экономики, события в искусстве и культуре✍ Все то, что важно для жителей Казахстана⚡imaq.kz ⚡"
+  content="{% blocktrans trimmed %}Новости Казахстана ✅ Картина дня, происшествия, новости экономики, события в искусстве и культуре✍ Все то, что важно для жителей Казахстана⚡imaq.kz ⚡{% endblocktrans %}"
 />
 <link rel="canonical" href="https://01.imaq.kz//author/" />
 {% endblock meta_data %} {% block content %}
@@ -15,10 +15,10 @@ meta_data %}
         <div class="main-news">
           <ul class="main-news__bread-crumb">
             <li>
-              <a href="{% url 'news:index' %}"> Главная </a>
+              <a href="{% url 'news:index' %}"> {% trans "Главная" %} </a>
             </li>
             <li>
-              <a href="#"> Автор </a>
+              <a href="#"> {% trans "Автор" %} </a>
             </li>
           </ul>
           <div class="author">

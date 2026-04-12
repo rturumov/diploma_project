@@ -1,8 +1,9 @@
                         {% load today_tags %}
                         {% load static %}
+                        {% load i18n %}
                         <div class="city-news">
                             <div class="city-news__sticky block__position_sticky">
-                                <div class="city-news__title"><span>Общество</span></div>
+                                <div class="city-news__title"><span>{% trans "Общество" %}</span></div>
                                 {% for article in category_news %}
                                 <a href="{% url 'news:news_detail' article.alias %}" class="city-new">
                                     <div class="city-new__content">
@@ -17,6 +18,6 @@
                                     </div>
                                 </a>
                                 {% endfor %}
-                                <a class="news__link news__link" href="{% url 'news:category' 'obshchestvo' %}">все новости</a>
+                                <a class="news__link news__link" href="{% url 'news:category' 'obshchestvo' %}">{% trans "все новости" %}</a>
                             </div>
                         </div>

@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!-- Modal Overlay -->
 <div
         id="askQuestionModal"
@@ -13,18 +14,18 @@
             {% csrf_token %}
 
             <label class="flex items-center gap-2 justify-between mt-6">
-                <input type="text" name="title" placeholder="Задайте свой вопрос..." class="py-3 focus:outline-none">
+                <input type="text" name="title" placeholder="{% trans 'Задайте свой вопрос...' %}" class="py-3 focus:outline-none">
                 <button type="submit">
                     <img src="{% static 'img/24/send.svg' %}" alt="send">
                 </button>
             </label>
         </form>
-        <p class="font-bold mt-6 mb-3">Раннее вами заданные вами вопросы</p>
+        <p class="font-bold mt-6 mb-3">{% trans 'Раннее вами заданные вами вопросы' %}</p>
         {% for q in my_questions %}
             <div class="flex justify-between py-3 border-b-1 border-b-[#EFEFEF]">
                 <div>
                     <p class="text-sm font-bold">{{ q.title }}</p>
-                    <p class="text-sm text-[#444444]">Ответов – {{ q.answer_count }}</p>
+                    <p class="text-sm text-[#444444]">{% blocktrans with n=q.answer_count %}Ответов – {{ n }}{% endblocktrans %}</p>
                     <p class="text-sm text-[#444444]">{{ q.created_at|date:"d.m.Y" }}</p>
                 </div>
                 <a href="?questionDetailsId={{ q.id }}">
@@ -32,7 +33,7 @@
                 </a>
             </div>
         {% empty %}
-            Вы еще не задали ни один вопрос
+            {% trans 'Вы еще не задали ни один вопрос' %}
         {% endfor %}
     </div>
 </div>
@@ -50,7 +51,7 @@
             <div class="flex justify-between py-3 border-b-1 border-b-[#EFEFEF] mt-6">
                 <div>
                     <p class="text-sm font-bold">{{ detailed_question.title }}</p>
-                    <p class="text-sm text-[#444444]">Ответов – {{ detailed_question.answer_count }}</p>
+                    <p class="text-sm text-[#444444]">{% blocktrans with n=detailed_question.answer_count %}Ответов – {{ n }}{% endblocktrans %}</p>
                     <p class="text-sm text-[#444444]">{{ detailed_question.created_at|date:"d.m.Y" }}</p>
                 </div>
                 <form action="{% url 'users:delete_question' detailed_question.id %}" method="post">

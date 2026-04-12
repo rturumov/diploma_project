@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!-- Modal Overlay -->
 <div
         id="authModal"
@@ -9,8 +10,8 @@
     <div class="bg-white rounded-2xl w-full max-w-md p-6 shadow-xl text-sm" onclick="event.stopPropagation()">
         <!-- Header -->
         <div class="flex flex-col border-b-3 border-b-[#F5F5F5] gap-1 mb-6">
-            <h2 class="text-2xl font-bold mb-1">Войти</h2>
-            <p class="font-medium mb-3">Введите логин и пароль, чтобы войти на портал</p>
+            <h2 class="text-2xl font-bold mb-1">{% trans 'Войти' %}</h2>
+            <p class="font-medium mb-3">{% trans 'Введите логин и пароль, чтобы войти на портал' %}</p>
         </div>
         <form method="POST" action="{% url 'users:login' %}">
             {% csrf_token %}
@@ -18,7 +19,7 @@
             <div class="flex gap-[10px]">
                 <img src="{% static 'img/16/phone.svg' %}" alt="profile"/>
                 <label class="w-full">
-                    <input name="username" type="email" placeholder="Введите логин"
+                    <input name="username" type="email" placeholder="{% trans 'Введите логин' %}"
                            class="w-full py-2 border-b border-[#EFEFEF] focus:outline-none focus:font-bold text-sm"/>
                 </label>
             </div>
@@ -26,7 +27,7 @@
             <div class="flex gap-[10px]">
                 <img src="{% static 'img/16/key.svg' %}" alt="profile"/>
                 <label class="w-full">
-                    <input name="password" type="password" placeholder="Введите пароль"
+                    <input name="password" type="password" placeholder="{% trans 'Введите пароль' %}"
                            class="w-full py-2 border-b border-[#EFEFEF] focus:outline-none focus:font-bold text-sm"/>
                 </label>
             </div>
@@ -36,7 +37,7 @@
                         type="submit"
                         class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl py-3"
                 >
-                    Войти
+                    {% trans 'Войти' %}
                 </button>
 
                 <button
@@ -44,17 +45,16 @@
                         onclick="openModal('registrationModal')"
                         class="w-full border-1 border-red-600 hover:border-red-700 text-red-600 hover:text-red-700 font-semibold rounded-xl py-3"
                 >
-                    Регистрация
+                    {% trans 'Регистрация' %}
                 </button>
             </div>
         </form>
 
         <div class="flex flex-col gap-3 mt-3 text-center">
             <button type="button" class="cursor-pointer"
-                    onclick="closeModal('authModal'); openModal('forgotPassword')">Забыли
-                пароль?
+                    onclick="closeModal('authModal'); openModal('forgotPassword')">{% trans 'Забыли пароль?' %}
             </button>
-            <a href="/" class="">Вернуться на главную</a>
+            <a href="/" class="">{% trans 'Вернуться на главную' %}</a>
         </div>
     </div>
 </div>
@@ -68,8 +68,8 @@
     <div class="bg-white rounded-2xl w-full max-w-md p-6 shadow-xl text-sm" onclick="event.stopPropagation()">
         <!-- Header -->
         <div class="flex flex-col border-b-3 border-b-[#F5F5F5] gap-1 mb-6">
-            <h2 class="text-2xl font-bold mb-1">Регистрация</h2>
-            <p class="font-medium mb-3">Введите контактные данные, чтобы получить бесплатный доступ</p>
+            <h2 class="text-2xl font-bold mb-1">{% trans 'Регистрация' %}</h2>
+            <p class="font-medium mb-3">{% trans 'Введите контактные данные, чтобы получить бесплатный доступ' %}</p>
         </div>
         <form method="POST" action="{% url 'users:register' %}" class="space-y-4">
             {% csrf_token %}
@@ -78,7 +78,7 @@
             <div class="flex gap-[10px]">
                 <img src="{% static 'img/16/profile.svg' %}" alt="profile"/>
                 <label class="w-full">
-                    <input name="full_name" placeholder="Турумов Алдияр Каерканович"
+                    <input name="full_name" placeholder="{% trans 'Турумов Алдияр Каерканович' %}"
                            class="w-full py-2 border-b border-[#EFEFEF] focus:outline-none focus:font-bold text-sm"/>
                 </label>
             </div>
@@ -86,7 +86,7 @@
             <div class="flex gap-[10px]">
                 <img src="{% static 'img/16/position.svg' %}" alt="profile"/>
                 <label class="w-full">
-                    <input name="position" placeholder="Ваша должность"
+                    <input name="position" placeholder="{% trans 'Ваша должность' %}"
                            class="w-full py-2 border-b border-[#EFEFEF] focus:outline-none focus:font-bold text-sm"/>
                 </label>
             </div>
@@ -94,7 +94,7 @@
             <div class="flex gap-[10px]">
                 <img src="{% static 'img/16/phone.svg' %}" alt="profile"/>
                 <label class="w-full">
-                    <input name="phone" placeholder="Телефон" pattern="^[0-9()+\- ]+$"
+                    <input name="phone" placeholder="{% trans 'Телефон' %}" pattern="^[0-9()+\- ]+$"
                            class="w-full py-2 border-b border-[#EFEFEF] focus:outline-none focus:font-bold text-sm"/>
                 </label>
             </div>
@@ -110,7 +110,7 @@
             <div class="flex gap-[10px]">
                 <img src="{% static 'img/16/key.svg' %}" alt="profile"/>
                 <label class="w-full">
-                    <input name="password" placeholder="Введите пароль" type="password"
+                    <input name="password" placeholder="{% trans 'Введите пароль' %}" type="password"
                            class="w-full py-2 border-b border-[#EFEFEF] focus:outline-none focus:font-bold text-sm"/>
                 </label>
             </div>
@@ -118,7 +118,7 @@
             <div class="flex gap-[10px]">
                 <img src="{% static 'img/16/key.svg' %}" alt="profile"/>
                 <label class="w-full">
-                    <input name="confirm_password" placeholder="Повторите пароль" type="password"
+                    <input name="confirm_password" placeholder="{% trans 'Повторите пароль' %}" type="password"
                            class="w-full py-2 border-b border-[#EFEFEF] focus:outline-none focus:font-bold text-sm"/>
                 </label>
             </div>
@@ -128,12 +128,12 @@
                     type="submit"
                     class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl py-3"
             >
-                Войти
+                {% trans 'Войти' %}
             </button>
 
             <!-- Link -->
             <div class="text-center pt-4">
-                <a href="/" class="text-sm text-gray-500 underline">Вернуться на главную</a>
+                <a href="/" class="text-sm text-gray-500 underline">{% trans 'Вернуться на главную' %}</a>
             </div>
         </form>
     </div>
@@ -148,8 +148,8 @@
     <div class="bg-white rounded-2xl w-full max-w-md p-6 shadow-xl text-sm" onclick="event.stopPropagation()">
         <!-- Header -->
         <div class="flex flex-col border-b-3 border-b-[#F5F5F5] gap-1 mb-6">
-            <h2 class="text-2xl font-bold mb-1">Введите вашу почту, мы вышлем вам ссылку для восстановления пароля</h2>
-            <p class="font-medium mb-3">Введите логин и пароль, чтобы войти на портал</p>
+            <h2 class="text-2xl font-bold mb-1">{% trans 'Введите вашу почту, мы вышлем вам ссылку для восстановления пароля' %}</h2>
+            <p class="font-medium mb-3">{% trans 'Введите логин и пароль, чтобы войти на портал' %}</p>
         </div>
         <form method="POST" action="{% url 'users:reset_password_view' %}" class="space-y-4">
             {% csrf_token %}
@@ -157,7 +157,7 @@
             <div class="flex gap-[10px]">
                 <img src="{% static 'img/16/email.svg' %}" alt="profile"/>
                 <label class="w-full">
-                    <input name="email" type="email" placeholder="Введите ваш Email для восстановления пароля"
+                    <input name="email" type="email" placeholder="{% trans 'Введите ваш Email для восстановления пароля' %}"
                            class="w-full py-2 border-b border-[#EFEFEF] focus:outline-none focus:font-bold text-sm"/>
                 </label>
             </div>
@@ -166,14 +166,14 @@
                     type="submit"
                     class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl py-3"
             >
-                Войти
+                {% trans 'Войти' %}
             </button>
 
             <button
                     onclick="closeModal('forgotPassword')"
                     class="w-full font-semibold rounded-xl py-3"
             >
-                Отмена
+                {% trans 'Отмена' %}
             </button>
         </form>
     </div>

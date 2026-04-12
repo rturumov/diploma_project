@@ -1,8 +1,9 @@
 {% load today_tags %}
+{% load i18n %}
 
 <div class="popular-news">
     <div class="popular-news__sticky block__position_sticky">
-        <div class="popular-news__main-title"><span>Популя</span>рное</div>
+        <div class="popular-news__main-title">{% trans "Популярное" %}</div>
              {% for article in popular_news %}
             <a href="{% url 'news:news_detail' article.alias %}" class="popular-news">
                 <div class="popular-news__info">
@@ -14,6 +15,6 @@
                 </div>
             </a>
             {% endfor %}
-            <a class="popular-news__link news__link" href="{% url 'news:all_news' %}">все новости</a>
+            <a class="popular-news__link news__link" href="{% url 'news:all_news' %}">{% trans "все новости" %}</a>
     </div>
 </div>
