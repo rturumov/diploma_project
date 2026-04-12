@@ -134,7 +134,6 @@ def abort(request):
 
 def login_view(request):
     if request.method == 'POST':
-        print(request.POST)
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             login(request, form.get_user())
