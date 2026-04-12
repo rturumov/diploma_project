@@ -13,6 +13,12 @@ class ArticleAdminForm(forms.ModelForm):
             "content": TrixEditorWidget(),
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for name, field in self.fields.items():
+            if name == "content" or name.startswith("content_"):
+                field.widget = TrixEditorWidget()
+
     def save(self, commit=True):
         instance = super().save(commit=False)
         if self.cleaned_data.get('new_image'):
@@ -52,6 +58,13 @@ class EventForm(forms.ModelForm):
             "description": TrixEditorWidget(),
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for name, field in self.fields.items():
+            if name == "description" or name.startswith("description_"):
+                field.widget = TrixEditorWidget()
+
+
 class AuthorAdminForm(forms.ModelForm):
     class Meta:
         model = Author
@@ -59,3 +72,9 @@ class AuthorAdminForm(forms.ModelForm):
         widgets = {
             "description": TrixEditorWidget(),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for name, field in self.fields.items():
+            if name == "description" or name.startswith("description_"):
+                field.widget = TrixEditorWidget()

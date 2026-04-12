@@ -1,6 +1,9 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin
 
 from forum.models import Message
 
-# Register your models here.
-admin.site.register(Message)
+
+@admin.register(Message)
+class MessageAdmin(TranslationAdmin):
+    pass
