@@ -1,5 +1,7 @@
+import logging
 import random
 
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
@@ -13,12 +15,24 @@ from users.models import EmailVerification, Question
 from users.utils.forms import add_form_errors_to_messages
 from users.utils.urls import add_query_param_to_url
 
+logger = logging.getLogger(__name__)
+
 
 def send_verification_email(email, code):
+    """
+    From-address must match the SMTP account (especially Gmail), otherwise
+    the server may accept the message but the provider drops or never delivers it.
+    """
+    from_email = (getattr(settings, "DEFAULT_FROM_EMAIL", None) or "").strip()
+    if not from_email:
+        from_email = (getattr(settings, "EMAIL_HOST_USER", None) or "").strip()
+    if not from_email:
+        return False, "Не заданы DEFAULT_FROM_EMAIL или EMAIL_HOST_USER в настройках."
+
     try:
         send_mail(
-            'Добро пожаловать - подтвердите регистрацию',
-            f'''
+            "Добро пожаловать - подтвердите регистрацию",
+            f"""
 Приветствуем вас на портале!
 
 Для подтверждения регистрации используйте код:
@@ -26,14 +40,17 @@ def send_verification_email(email, code):
 
 Рады, что вы с нами. Впереди много полезного, практичного и интересного!
 
-С уважением,  
+С уважением,
 Команда разработчиков
-''',
-            'rasul.turum.2004@gmail.com',
+""",
+            from_email,
             [email],
+            fail_silently=False,
         )
+        logger.info("Verification email sent to %s (from %s)", email, from_email)
         return True, None
     except Exception as e:
+        logger.exception("Verification email failed for %s", email)
         return False, str(e)
 
 
@@ -117,7 +134,6 @@ def abort(request):
 
 def login_view(request):
     if request.method == 'POST':
-        print(request.POST)
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             login(request, form.get_user())

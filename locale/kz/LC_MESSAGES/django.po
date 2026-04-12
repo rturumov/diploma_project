@@ -300,6 +300,10 @@ msgstr "Құпия сөзді енгізіңіз"
 msgid "Регистрация"
 msgstr "Тіркелу"
 
+#: templates/includes/auth_modal.html
+msgid "Зарегистрироваться"
+msgstr "Тіркелу"
+
 #: templates/includes/auth_modal.html:55
 msgid "Забыли пароль?"
 msgstr "Құпия сөзді ұмыттыңыз ба?"
