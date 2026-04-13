@@ -162,3 +162,5 @@ media
 static/admin
 static_files
 
+
+.env.docker

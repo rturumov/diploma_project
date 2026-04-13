@@ -1,6 +1,6 @@
 {% load static %}
 {% load i18n %}
-<div class="flex flex-row justify-between lg:min-h-[479px] shadow-[0px_4px_4px_0px_#0000001A] bg-white mt-3 rounded-[16px] gap-6">
+<div class="flex flex-row justify-between lg:min-h-[561px] shadow-[0px_4px_4px_0px_#0000001A] bg-white mt-3 rounded-[16px] gap-6">
     <div class="flex flex-col justify-center lg:pl-14 gap-3 lg:py-6 p-4">
         <text class=" w-max-[819px] w-full text-sm lg:text-3xl lg:left-[52px] lg:top-[102px] font-[600] lg:leading-10 text-[#A96500]">
             {% trans "Портал по охране труда и технике безопасности в Казахстане." %}
@@ -18,7 +18,7 @@
                     {% trans 'Стать частью сообщества' %}
         </button>
     </div>
-    <img class="hidden lg:block rounded-r-[16px] w-full" src="{% static 'img/_src/icons/tehnika-bezopasnosti_02.jpg' %}" alt="main banner">
+    <img class="hidden lg:block rounded-r-[16px] w-full lg:max-w-[804px]" src="{% static 'img/_src/icons/tehnika-bezopasnosti_02.jpg' %}" alt="main banner">
 </div>
 <div class="flex items-stretch gap-2 max-lg:overflow-auto mt-3 max-lg:pb-1">
     <a href="{% url 'news:all_news' %}" class="rounded-[16px] flex justify-center items-center h-[79px] lg:h-[137px] w-full shadow-[0px_4px_4px_0px_#0000001A] bg-white p-3 min-w-[150px]">

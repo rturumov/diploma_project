@@ -125,24 +125,16 @@
                     </button>
                 </form>
             {% endif %}
-            <form action="{% url 'set_language' %}" method="post" class="flex gap-2 items-center scale-80">
+            {% get_current_language as CURRENT_LANG %}
+            <form action="{% url 'set_language' %}" method="post" class="flex items-center">
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{{ request.path }}">
-
-                <button type="submit" name="language" value="ru"
-                        class="text-white font-bold px-2 py-1 border rounded">
-                    RU
-                </button>
-
-                <button type="submit" name="language" value="en"
-                        class="text-white font-bold px-2 py-1 border rounded">
-                    EN
-                </button>
-
-                <button type="submit" name="language" value="kz"
-                        class="text-white font-bold px-2 py-1 border rounded">
-                    KZ
-                </button>
+                <select name="language" onchange="this.form.submit()"
+                        class="bg-transparent text-white font-bold px-2 py-1 border rounded cursor-pointer outline-none">
+                    <option value="ru" {% if CURRENT_LANG == 'ru' %}selected{% endif %} class="text-black">RU</option>
+                    <option value="en" {% if CURRENT_LANG == 'en' %}selected{% endif %} class="text-black">EN</option>
+                    <option value="kz" {% if CURRENT_LANG == 'kz' %}selected{% endif %} class="text-black">KZ</option>
+                </select>
             </form>
         </div>
     </div>
