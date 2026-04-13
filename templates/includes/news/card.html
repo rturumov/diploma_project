@@ -25,6 +25,18 @@
                 <div class="text-sm w-full text-[#787878]">
                     {% if is_detail %}
                         {{ article.content|safe }}
+                        {% if article.source_url or article.source_name %}
+                            <div class="mt-4 pt-3 border-t border-[#EFEFEF] text-sm text-[#787878]">
+                                <span class="font-semibold">{% trans 'Источник' %}:</span>
+                                {% if article.source_url %}
+                                    <a href="{{ article.source_url }}" target="_blank" rel="noopener noreferrer" class="text-[#3F8CFF] hover:underline">
+                                        {{ article.source_name|default:article.source_url }}
+                                    </a>
+                                {% else %}
+                                    {{ article.source_name }}
+                                {% endif %}
+                            </div>
+                        {% endif %}
                     {% else %}
                         {{ article.description }}
                     {% endif %}

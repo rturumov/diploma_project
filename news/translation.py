@@ -37,7 +37,7 @@ class TagTranslationOptions(TranslationOptions):
 
 @register(Article)
 class ArticleTranslationOptions(TranslationOptions):
-    fields = ("title", "description", "content")
+    fields = ("title", "description", "content", "source_name")
 
 
 @register(DraftArticle)

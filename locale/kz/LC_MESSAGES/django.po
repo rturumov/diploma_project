@@ -209,6 +209,9 @@ msgstr "Қосылу қатесі"
 msgid "Источники"
 msgstr "Дереккөздер"
 
+msgid "Источник"
+msgstr "Дереккөз"
+
 #: templates/base.html:36 templates/includes/main/index_blocks.html:6
 #: templates/pages/index.html:6
 msgid "Портал по охране труда и технике безопасности в Казахстане."

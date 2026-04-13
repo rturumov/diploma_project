@@ -106,6 +106,8 @@ class Article(UUIDMixin):
                               default=list, blank=True, null=True)
     is_featured = models.BooleanField('Закрепить в календарь', default=False)
     is_popular = models.BooleanField(default=False)
+    source_url = models.URLField('Источник', max_length=500, blank=True, null=True)
+    source_name = models.CharField('Название источника', max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.title
