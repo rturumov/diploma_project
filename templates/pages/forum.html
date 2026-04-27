@@ -23,7 +23,9 @@
                             {% for author in authors %}
                                 <div onclick="window.location.href='?author_id={{ author.id }}'"
                                      class="flex min-w-[301px] max-lg:shrink-0 gap-3 p-3 bg-[#F5F5F5] justify-start items-center rounded-[16px] cursor-pointer {% if selected_author and author.id == selected_author.id %} border-[4px] border-red-600 {% else %} bg-[#F5F5F5] {% endif %}">
-                                    <img class="max-w-[84px] max-h-[84px]" src="{{ author.image.url }}" alt="photo">
+                                    {% if author.image %}
+                                        <img class="max-w-[84px] max-h-[84px]" src="{{ author.image.url }}" alt="photo">
+                                    {% endif %}
                                     <div class="flex gap-3 flex-col">
                                         <div class="flex flex-col gap-0">
                                             <p class="text-[10px] font-[700]">{{ author.name }}</p>
@@ -72,8 +74,10 @@
             {% if selected_author %}
                 <div class="flex flex-col h-auto max-lg:pb-4 max-lg:p-2 shadow-[0px_4px_4px_0px_#0000001A] lg:bg-white lg:p-5 pt-3 rounded-[16px] w-full pb-3 lg:items-start">
                     <div class="flex flex-row max-lg:flex-col gap-3 justify-center items-center">
-                        <img class="lg:max-w-[194px] lg:max-h-[194px] max-lg:max-w-[352px] max-lg:max-h-[352px] h-full w-full"
-                             src="{{ selected_author.image.url }}" alt="photo">
+                        {% if selected_author.image %}
+                            <img class="lg:max-w-[194px] lg:max-h-[194px] max-lg:max-w-[352px] max-lg:max-h-[352px] h-full w-full"
+                                 src="{{ selected_author.image.url }}" alt="photo">
+                        {% endif %}
                         <div class="flex gap-3 flex-col">
                             <div class="flex flex-col gap-0">
                                 <p class="text-lg font-[700]">{{ selected_author.name }}</p>
@@ -86,7 +90,6 @@
                                    class="text-white py-3 px-6 rounded-[8px] bg-[#3F8CFF] font-[600] text-xs">WhatsApp</a>
                             </div>
                         </div>
-                        <div class="sm:pl-6 font-[400] max-lg:mt-3 leading-5">{{ selected_author.description|safe }}</div>
                     </div>
                 </div>
             {% endif %}
